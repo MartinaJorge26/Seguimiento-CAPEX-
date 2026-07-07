@@ -127,12 +127,6 @@ tr:hover td{background:#1c2128}
 .anual-banner p{font-size:11px;color:var(--mut);margin-top:3px}
 .anual-kpis{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-bottom:18px}
 .kpi.k-anual:hover{border-color:var(--vio)}
-
-.sortable{cursor:pointer;user-select:none;white-space:nowrap}
-.sortable:hover{color:var(--txt)}
-.sortable::after{content:' ⇅';font-size:8px;opacity:.5}
-.sortable.asc::after{content:' ↑';opacity:1;color:var(--acc)}
-.sortable.desc::after{content:' ↓';opacity:1;color:var(--acc)}
 </style>
 </head>
 <body>
@@ -207,59 +201,12 @@ tr:hover td{background:#1c2128}
     <select id="c-udn" onchange="renderClientes()"><option value="">Todas las UdN</option><option value="CERVEZAS CMQ">🍺 Cervezas</option><option value="UNG">🥤 UNG</option><option value="UNG (Red Bull)">🐂 Red Bull</option><option value="AGUAS ECO">💧 Aguas</option></select>
     <select id="c-sem" onchange="renderClientes()"><option value="">Todos los estados</option><option value="0%">Sin venta</option><option value="0-25%">0–25%</option><option value="25-50%">25–50%</option><option value="50-75%">50–75%</option><option value=">=75%">≥75%</option></select>
     <select id="c-rec" onchange="renderClientes()"><option value="">Todas las rec.</option><option value="Mantener">✅ Mantener</option><option value="Monitorear">⚠️ Monitorear</option><option value="Evaluar retiro">⛔ Evaluar retiro</option></select>
-    <select id="c-rt" onchange="renderClientes()" style="background:var(--sur);border:1px solid var(--bdr);color:var(--txt);border-radius:6px;padding:6px 9px;font-size:10px;font-family:'Barlow',sans-serif"><option value="">Todas las rutas</option><option value="__temp__">🌊 Solo TEMP</option><option value="__notemp__">🏪 Sin TEMP</option><option value="DOLORES">DOLORES</option>
-<option value="MAYORISTAS">MAYORISTAS</option>
-<option value="OFICINA">OFICINA</option>
-<option value="OFICINA MDA">OFICINA MDA</option>
-<option value="TELEFONICA">TELEFONICA</option>
-<option value="V12 LUJU">V12 LUJU</option>
-<option value="V12 MAVI">V12 MAVI</option>
-<option value="V12 MISA">V12 MISA</option>
-<option value="V12 TEMP">V12 TEMP</option>
-<option value="V31 JUE">V31 JUE</option>
-<option value="V31 LUN">V31 LUN</option>
-<option value="V31 MAVI">V31 MAVI</option>
-<option value="V31 MISA">V31 MISA</option>
-<option value="V31 TEMP">V31 TEMP</option>
-<option value="V34 LUJU">V34 LUJU</option>
-<option value="V34 MAVI">V34 MAVI</option>
-<option value="V34 MISA">V34 MISA</option>
-<option value="V34 TEMP">V34 TEMP</option>
-<option value="V35 JUE">V35 JUE</option>
-<option value="V35 LUN">V35 LUN</option>
-<option value="V35 MAVI">V35 MAVI</option>
-<option value="V35 MISA">V35 MISA</option>
-<option value="V35 TEMP">V35 TEMP</option>
-<option value="V41 LUJU">V41 LUJU</option>
-<option value="V41 MAVI">V41 MAVI</option>
-<option value="V41 MISA">V41 MISA</option>
-<option value="V41 TEMP">V41 TEMP</option>
-<option value="V51 JUE">V51 JUE</option>
-<option value="V51 LUN">V51 LUN</option>
-<option value="V51 MAVI">V51 MAVI</option>
-<option value="V51 MISA">V51 MISA</option>
-<option value="V52 JUE">V52 JUE</option>
-<option value="V52 LUN">V52 LUN</option>
-<option value="V52 MAVI">V52 MAVI</option>
-<option value="V52 MISA">V52 MISA</option>
-<option value="V52 TEMP">V52 TEMP</option>
-<option value="V71 JUE">V71 JUE</option>
-<option value="V71 LUN">V71 LUN</option>
-<option value="V71 MAR">V71 MAR</option>
-<option value="V71 MIE">V71 MIE</option>
-<option value="V71 VIE">V71 VIE</option>
-<option value="V73 JUE">V73 JUE</option>
-<option value="V73 MAR">V73 MAR</option>
-<option value="V73 MISA">V73 MISA</option>
-<option value="V73 VIE">V73 VIE</option>
-<option value="V74 LUJU">V74 LUJU</option>
-<option value="V74 MAVI">V74 MAVI</option>
-<option value="VENTA INTERNA">VENTA INTERNA</option></select>
+    <select id="c-rt" onchange="renderClientes()"><option value="">Todas las rutas</option><option value="__temp__">🌊 Solo Temporada</option><option value="__notemp__">🏪 Sin Temporada</option><option value="DOLORES">DOLORES</option><option value="MAYORISTAS">MAYORISTAS</option><option value="OFICINA">OFICINA</option><option value="OFICINA MDA">OFICINA MDA</option><option value="TELEFONICA">TELEFONICA</option><option value="V12 LUJU">V12 LUJU</option><option value="V12 MAVI">V12 MAVI</option><option value="V12 MISA">V12 MISA</option><option value="V12 TEMP">V12 TEMP</option><option value="V31 JUE">V31 JUE</option><option value="V31 LUN">V31 LUN</option><option value="V31 MAVI">V31 MAVI</option><option value="V31 MISA">V31 MISA</option><option value="V31 TEMP">V31 TEMP</option><option value="V34 LUJU">V34 LUJU</option><option value="V34 MAVI">V34 MAVI</option><option value="V34 MISA">V34 MISA</option><option value="V34 TEMP">V34 TEMP</option><option value="V35 JUE">V35 JUE</option><option value="V35 LUN">V35 LUN</option><option value="V35 MAVI">V35 MAVI</option><option value="V35 MISA">V35 MISA</option><option value="V35 TEMP">V35 TEMP</option><option value="V41 LUJU">V41 LUJU</option><option value="V41 MAVI">V41 MAVI</option><option value="V41 MISA">V41 MISA</option><option value="V41 TEMP">V41 TEMP</option><option value="V51 JUE">V51 JUE</option><option value="V51 LUN">V51 LUN</option><option value="V51 MAVI">V51 MAVI</option><option value="V51 MISA">V51 MISA</option><option value="V52 JUE">V52 JUE</option><option value="V52 LUN">V52 LUN</option><option value="V52 MAVI">V52 MAVI</option><option value="V52 MISA">V52 MISA</option><option value="V52 TEMP">V52 TEMP</option><option value="V71 JUE">V71 JUE</option><option value="V71 LUN">V71 LUN</option><option value="V71 MAR">V71 MAR</option><option value="V71 MIE">V71 MIE</option><option value="V71 VIE">V71 VIE</option><option value="V73 JUE">V73 JUE</option><option value="V73 MAR">V73 MAR</option><option value="V73 MISA">V73 MISA</option><option value="V73 VIE">V73 VIE</option><option value="V74 LUJU">V74 LUJU</option><option value="V74 MAVI">V74 MAVI</option><option value="VENTA INTERNA">VENTA INTERNA</option></select>
     <input id="c-q" type="text" placeholder="Buscar PDV..." oninput="renderClientes()" style="width:160px">
     <span class="flt-count" id="c-count"></span><button class="exp-btn" onclick="exportClientes()">⬇ CSV</button>
   </div>
   <div class="tbl-wrap"><table><thead><tr>
-    <th class="sortable" onclick="sortBy('pdv',this,renderClientes)">PDV</th><th class="sortable" onclick="sortBy('cod',this,renderClientes)">Cód.</th><th class="sortable" onclick="sortBy('loc',this,renderClientes)">Localidad</th><th class="sortable" onclick="sortBy('ruta',this,renderClientes)">Ruta</th><th class="sortable" onclick="sortBy('sup',this,renderClientes)">Supervisor</th><th class="sortable" onclick="sortBy('pro',this,renderClientes)">Promotor</th>
+    <th>PDV</th><th>Cód.</th><th>Localidad</th><th>Ruta</th><th>Supervisor</th><th>Promotor</th>
     <th>UdN</th><th>EDF</th><th>OK</th><th>Meta Hl</th><th>Venta Mes</th><th>% Mes</th>
     <th>% 3M</th><th>% 6M</th><th>% 12M</th><th>Recomendación</th>
   </tr></thead><tbody id="c-body"></tbody></table></div>
@@ -275,59 +222,13 @@ tr:hover td{background:#1c2128}
     <select id="e-udn" onchange="renderEDF()"><option value="">Todas las UdN</option><option value="CERVEZAS CMQ">🍺 Cervezas</option><option value="UNG">🥤 UNG</option><option value="UNG (Red Bull)">🐂 Red Bull</option><option value="AGUAS ECO">💧 Aguas</option></select>
     <select id="e-tipo" onchange="renderEDF()"><option value="">Todos</option><option value="rb">🐂 Solo Red Bull</option><option value="agua">💧 Solo Aguas</option><option value="gen">🍺🥤 Genéricos</option></select>
     <select id="e-sem" onchange="renderEDF()"><option value="">Todos los estados</option><option value="0%">Sin venta</option><option value="0-25%">0–25%</option><option value="25-50%">25–50%</option><option value="50-75%">50–75%</option><option value=">=75%">≥75%</option></select>
-    <select id="e-rt" onchange="renderEDF()" style="background:var(--sur);border:1px solid var(--bdr);color:var(--txt);border-radius:6px;padding:6px 9px;font-size:10px;font-family:'Barlow',sans-serif"><option value="">Todas las rutas</option><option value="__temp__">🌊 Solo TEMP</option><option value="__notemp__">🏪 Sin TEMP</option><option value="DOLORES">DOLORES</option>
-<option value="MAYORISTAS">MAYORISTAS</option>
-<option value="OFICINA">OFICINA</option>
-<option value="OFICINA MDA">OFICINA MDA</option>
-<option value="TELEFONICA">TELEFONICA</option>
-<option value="V12 LUJU">V12 LUJU</option>
-<option value="V12 MAVI">V12 MAVI</option>
-<option value="V12 MISA">V12 MISA</option>
-<option value="V12 TEMP">V12 TEMP</option>
-<option value="V31 JUE">V31 JUE</option>
-<option value="V31 LUN">V31 LUN</option>
-<option value="V31 MAVI">V31 MAVI</option>
-<option value="V31 MISA">V31 MISA</option>
-<option value="V31 TEMP">V31 TEMP</option>
-<option value="V34 LUJU">V34 LUJU</option>
-<option value="V34 MAVI">V34 MAVI</option>
-<option value="V34 MISA">V34 MISA</option>
-<option value="V34 TEMP">V34 TEMP</option>
-<option value="V35 JUE">V35 JUE</option>
-<option value="V35 LUN">V35 LUN</option>
-<option value="V35 MAVI">V35 MAVI</option>
-<option value="V35 MISA">V35 MISA</option>
-<option value="V35 TEMP">V35 TEMP</option>
-<option value="V41 LUJU">V41 LUJU</option>
-<option value="V41 MAVI">V41 MAVI</option>
-<option value="V41 MISA">V41 MISA</option>
-<option value="V41 TEMP">V41 TEMP</option>
-<option value="V51 JUE">V51 JUE</option>
-<option value="V51 LUN">V51 LUN</option>
-<option value="V51 MAVI">V51 MAVI</option>
-<option value="V51 MISA">V51 MISA</option>
-<option value="V52 JUE">V52 JUE</option>
-<option value="V52 LUN">V52 LUN</option>
-<option value="V52 MAVI">V52 MAVI</option>
-<option value="V52 MISA">V52 MISA</option>
-<option value="V52 TEMP">V52 TEMP</option>
-<option value="V71 JUE">V71 JUE</option>
-<option value="V71 LUN">V71 LUN</option>
-<option value="V71 MAR">V71 MAR</option>
-<option value="V71 MIE">V71 MIE</option>
-<option value="V71 VIE">V71 VIE</option>
-<option value="V73 JUE">V73 JUE</option>
-<option value="V73 MAR">V73 MAR</option>
-<option value="V73 MISA">V73 MISA</option>
-<option value="V73 VIE">V73 VIE</option>
-<option value="V74 LUJU">V74 LUJU</option>
-<option value="V74 MAVI">V74 MAVI</option>
-<option value="VENTA INTERNA">VENTA INTERNA</option></select>
+    <select id="e-temp" onchange="renderEDF()"><option value="">Todos los PDV</option><option value="temp">🌊 Solo Temporada</option><option value="reg">🏪 Solo Regulares</option></select>
+    <select id="e-rt" onchange="renderEDF()"><option value="">Todas las rutas</option><option value="__temp__">🌊 Solo Temporada</option><option value="__notemp__">🏪 Sin Temporada</option><option value="DOLORES">DOLORES</option><option value="MAYORISTAS">MAYORISTAS</option><option value="OFICINA">OFICINA</option><option value="OFICINA MDA">OFICINA MDA</option><option value="TELEFONICA">TELEFONICA</option><option value="V12 LUJU">V12 LUJU</option><option value="V12 MAVI">V12 MAVI</option><option value="V12 MISA">V12 MISA</option><option value="V12 TEMP">V12 TEMP</option><option value="V31 JUE">V31 JUE</option><option value="V31 LUN">V31 LUN</option><option value="V31 MAVI">V31 MAVI</option><option value="V31 MISA">V31 MISA</option><option value="V31 TEMP">V31 TEMP</option><option value="V34 LUJU">V34 LUJU</option><option value="V34 MAVI">V34 MAVI</option><option value="V34 MISA">V34 MISA</option><option value="V34 TEMP">V34 TEMP</option><option value="V35 JUE">V35 JUE</option><option value="V35 LUN">V35 LUN</option><option value="V35 MAVI">V35 MAVI</option><option value="V35 MISA">V35 MISA</option><option value="V35 TEMP">V35 TEMP</option><option value="V41 LUJU">V41 LUJU</option><option value="V41 MAVI">V41 MAVI</option><option value="V41 MISA">V41 MISA</option><option value="V41 TEMP">V41 TEMP</option><option value="V51 JUE">V51 JUE</option><option value="V51 LUN">V51 LUN</option><option value="V51 MAVI">V51 MAVI</option><option value="V51 MISA">V51 MISA</option><option value="V52 JUE">V52 JUE</option><option value="V52 LUN">V52 LUN</option><option value="V52 MAVI">V52 MAVI</option><option value="V52 MISA">V52 MISA</option><option value="V52 TEMP">V52 TEMP</option><option value="V71 JUE">V71 JUE</option><option value="V71 LUN">V71 LUN</option><option value="V71 MAR">V71 MAR</option><option value="V71 MIE">V71 MIE</option><option value="V71 VIE">V71 VIE</option><option value="V73 JUE">V73 JUE</option><option value="V73 MAR">V73 MAR</option><option value="V73 MISA">V73 MISA</option><option value="V73 VIE">V73 VIE</option><option value="V74 LUJU">V74 LUJU</option><option value="V74 MAVI">V74 MAVI</option><option value="VENTA INTERNA">VENTA INTERNA</option></select>
     <input id="e-q" type="text" placeholder="Buscar PDV o serie..." oninput="renderEDF()" style="width:160px">
     <span class="flt-count" id="e-count"></span><button class="exp-btn" onclick="exportEDF()">⬇ CSV</button>
   </div>
   <div class="tbl-wrap"><table><thead><tr>
-    <th class="sortable" onclick="sortBy('pdv',this,renderEDF)">PDV</th><th class="sortable" onclick="sortBy('cod',this,renderEDF)">Cód.</th><th class="sortable" onclick="sortBy('loc',this,renderEDF)">Loc.</th><th class="sortable" onclick="sortBy('pro',this,renderEDF)">Promotor</th>
+    <th>PDV</th><th>Cód.</th><th>Loc.</th><th>Promotor</th>
     <th>UdN</th><th>Tipo</th><th>Modelo</th><th>N° Serie</th>
     <th>Meta Hl</th><th>Mín.OK</th><th>Asig.Mes</th><th>Falta</th><th>% Mes</th><th>OK?</th>
     <th>% 3M</th><th>OK?</th><th>% 6M</th><th>OK?</th><th>% 12M</th><th>OK?</th><th>Rec.</th>
@@ -357,60 +258,14 @@ tr:hover td{background:#1c2128}
     <select id="vc-sup" onchange="renderVC()"><option value="">Todos los supervisores</option></select>
     <select id="vc-pro" onchange="renderVC()"><option value="">Todos los promotores</option></select>
     <select id="vc-udn" onchange="renderVC()"><option value="">Todas las UdN</option><option value="CERVEZAS CMQ">🍺 Cervezas</option><option value="UNG">🥤 UNG</option><option value="UNG (Red Bull)">🐂 Red Bull</option><option value="AGUAS ECO">💧 Aguas</option></select>
-    <select id="vc-rt" onchange="renderVC()" style="background:var(--sur);border:1px solid var(--bdr);color:var(--txt);border-radius:6px;padding:6px 9px;font-size:10px;font-family:'Barlow',sans-serif"><option value="">Todas las rutas</option><option value="__temp__">🌊 Solo TEMP</option><option value="__notemp__">🏪 Sin TEMP</option><option value="DOLORES">DOLORES</option>
-<option value="MAYORISTAS">MAYORISTAS</option>
-<option value="OFICINA">OFICINA</option>
-<option value="OFICINA MDA">OFICINA MDA</option>
-<option value="TELEFONICA">TELEFONICA</option>
-<option value="V12 LUJU">V12 LUJU</option>
-<option value="V12 MAVI">V12 MAVI</option>
-<option value="V12 MISA">V12 MISA</option>
-<option value="V12 TEMP">V12 TEMP</option>
-<option value="V31 JUE">V31 JUE</option>
-<option value="V31 LUN">V31 LUN</option>
-<option value="V31 MAVI">V31 MAVI</option>
-<option value="V31 MISA">V31 MISA</option>
-<option value="V31 TEMP">V31 TEMP</option>
-<option value="V34 LUJU">V34 LUJU</option>
-<option value="V34 MAVI">V34 MAVI</option>
-<option value="V34 MISA">V34 MISA</option>
-<option value="V34 TEMP">V34 TEMP</option>
-<option value="V35 JUE">V35 JUE</option>
-<option value="V35 LUN">V35 LUN</option>
-<option value="V35 MAVI">V35 MAVI</option>
-<option value="V35 MISA">V35 MISA</option>
-<option value="V35 TEMP">V35 TEMP</option>
-<option value="V41 LUJU">V41 LUJU</option>
-<option value="V41 MAVI">V41 MAVI</option>
-<option value="V41 MISA">V41 MISA</option>
-<option value="V41 TEMP">V41 TEMP</option>
-<option value="V51 JUE">V51 JUE</option>
-<option value="V51 LUN">V51 LUN</option>
-<option value="V51 MAVI">V51 MAVI</option>
-<option value="V51 MISA">V51 MISA</option>
-<option value="V52 JUE">V52 JUE</option>
-<option value="V52 LUN">V52 LUN</option>
-<option value="V52 MAVI">V52 MAVI</option>
-<option value="V52 MISA">V52 MISA</option>
-<option value="V52 TEMP">V52 TEMP</option>
-<option value="V71 JUE">V71 JUE</option>
-<option value="V71 LUN">V71 LUN</option>
-<option value="V71 MAR">V71 MAR</option>
-<option value="V71 MIE">V71 MIE</option>
-<option value="V71 VIE">V71 VIE</option>
-<option value="V73 JUE">V73 JUE</option>
-<option value="V73 MAR">V73 MAR</option>
-<option value="V73 MISA">V73 MISA</option>
-<option value="V73 VIE">V73 VIE</option>
-<option value="V74 LUJU">V74 LUJU</option>
-<option value="V74 MAVI">V74 MAVI</option>
-<option value="VENTA INTERNA">VENTA INTERNA</option></select>
+    <select id="vc-temp" onchange="renderVC()"><option value="">Todos los PDV</option><option value="temp">🌊 Solo Temporada</option><option value="reg">🏪 Solo Regulares</option></select>
+    <select id="vc-rt" onchange="renderVC()"><option value="">Todas las rutas</option><option value="__temp__">🌊 Solo Temporada</option><option value="__notemp__">🏪 Sin Temporada</option><option value="DOLORES">DOLORES</option><option value="MAYORISTAS">MAYORISTAS</option><option value="OFICINA">OFICINA</option><option value="OFICINA MDA">OFICINA MDA</option><option value="TELEFONICA">TELEFONICA</option><option value="V12 LUJU">V12 LUJU</option><option value="V12 MAVI">V12 MAVI</option><option value="V12 MISA">V12 MISA</option><option value="V12 TEMP">V12 TEMP</option><option value="V31 JUE">V31 JUE</option><option value="V31 LUN">V31 LUN</option><option value="V31 MAVI">V31 MAVI</option><option value="V31 MISA">V31 MISA</option><option value="V31 TEMP">V31 TEMP</option><option value="V34 LUJU">V34 LUJU</option><option value="V34 MAVI">V34 MAVI</option><option value="V34 MISA">V34 MISA</option><option value="V34 TEMP">V34 TEMP</option><option value="V35 JUE">V35 JUE</option><option value="V35 LUN">V35 LUN</option><option value="V35 MAVI">V35 MAVI</option><option value="V35 MISA">V35 MISA</option><option value="V35 TEMP">V35 TEMP</option><option value="V41 LUJU">V41 LUJU</option><option value="V41 MAVI">V41 MAVI</option><option value="V41 MISA">V41 MISA</option><option value="V41 TEMP">V41 TEMP</option><option value="V51 JUE">V51 JUE</option><option value="V51 LUN">V51 LUN</option><option value="V51 MAVI">V51 MAVI</option><option value="V51 MISA">V51 MISA</option><option value="V52 JUE">V52 JUE</option><option value="V52 LUN">V52 LUN</option><option value="V52 MAVI">V52 MAVI</option><option value="V52 MISA">V52 MISA</option><option value="V52 TEMP">V52 TEMP</option><option value="V71 JUE">V71 JUE</option><option value="V71 LUN">V71 LUN</option><option value="V71 MAR">V71 MAR</option><option value="V71 MIE">V71 MIE</option><option value="V71 VIE">V71 VIE</option><option value="V73 JUE">V73 JUE</option><option value="V73 MAR">V73 MAR</option><option value="V73 MISA">V73 MISA</option><option value="V73 VIE">V73 VIE</option><option value="V74 LUJU">V74 LUJU</option><option value="V74 MAVI">V74 MAVI</option><option value="VENTA INTERNA">VENTA INTERNA</option></select>
     <input id="vc-q" type="text" placeholder="Buscar..." oninput="renderVC()" style="width:140px">
     <span class="flt-count" id="vc-count"></span><button class="exp-btn" onclick="exportVC()">⬇ CSV</button>
   </div>
   <div class="tbl-wrap"><table><thead><tr>
-    <th class="sortable" onclick="sortBy('pdv',this,renderVC)">PDV</th><th>Cód.</th><th class="sortable" onclick="sortBy('loc',this,renderVC)">Localidad</th><th class="sortable" onclick="sortBy('ruta',this,renderVC)">Ruta</th><th class="sortable" onclick="sortBy('sup',this,renderVC)">Supervisor</th><th class="sortable" onclick="sortBy('pro',this,renderVC)">Promotor</th>
-    <th>UdN</th><th>Modelo</th><th>N° Serie</th><th class="sortable" onclick="sortBy('meta',this,renderVC)">Meta Hl/mes</th><th>Rec.</th>
+    <th>PDV</th><th>Cód.</th><th>Localidad</th><th>Ruta</th><th>Supervisor</th><th>Promotor</th>
+    <th>UdN</th><th>Modelo</th><th>N° Serie</th><th>Meta Hl/mes</th><th>Rec.</th>
   </tr></thead><tbody id="vc-body"></tbody></table></div>
 </div>
 <!-- REPAGO ANUAL -->
@@ -469,54 +324,6 @@ tr:hover td{background:#1c2128}
     <select id="rc-pro" onchange="renderResumenCli()"><option value="">Todos los promotores</option></select>
     <select id="rc-rec" onchange="renderResumenCli()"><option value="">Todas las rec.</option><option value="Mantener">✅ Mantener</option><option value="Monitorear">⚠️ Monitorear</option><option value="Evaluar retiro">⛔ Evaluar retiro</option></select>
     <select id="rc-udn" onchange="renderResumenCli()"><option value="">Con cualquier EDF</option><option value="cvza">Con EDF Cerveza</option><option value="ung">Con EDF UNG</option><option value="rb">Con EDF Red Bull</option><option value="agua">Con EDF Aguas</option></select>
-    <select id="rc-rt" onchange="renderResumenCli()" style="background:var(--sur);border:1px solid var(--bdr);color:var(--txt);border-radius:6px;padding:6px 9px;font-size:10px;font-family:'Barlow',sans-serif"><option value="">Todas las rutas</option><option value="__temp__">🌊 Solo TEMP</option><option value="__notemp__">🏪 Sin TEMP</option><option value="DOLORES">DOLORES</option>
-<option value="MAYORISTAS">MAYORISTAS</option>
-<option value="OFICINA">OFICINA</option>
-<option value="OFICINA MDA">OFICINA MDA</option>
-<option value="TELEFONICA">TELEFONICA</option>
-<option value="V12 LUJU">V12 LUJU</option>
-<option value="V12 MAVI">V12 MAVI</option>
-<option value="V12 MISA">V12 MISA</option>
-<option value="V12 TEMP">V12 TEMP</option>
-<option value="V31 JUE">V31 JUE</option>
-<option value="V31 LUN">V31 LUN</option>
-<option value="V31 MAVI">V31 MAVI</option>
-<option value="V31 MISA">V31 MISA</option>
-<option value="V31 TEMP">V31 TEMP</option>
-<option value="V34 LUJU">V34 LUJU</option>
-<option value="V34 MAVI">V34 MAVI</option>
-<option value="V34 MISA">V34 MISA</option>
-<option value="V34 TEMP">V34 TEMP</option>
-<option value="V35 JUE">V35 JUE</option>
-<option value="V35 LUN">V35 LUN</option>
-<option value="V35 MAVI">V35 MAVI</option>
-<option value="V35 MISA">V35 MISA</option>
-<option value="V35 TEMP">V35 TEMP</option>
-<option value="V41 LUJU">V41 LUJU</option>
-<option value="V41 MAVI">V41 MAVI</option>
-<option value="V41 MISA">V41 MISA</option>
-<option value="V41 TEMP">V41 TEMP</option>
-<option value="V51 JUE">V51 JUE</option>
-<option value="V51 LUN">V51 LUN</option>
-<option value="V51 MAVI">V51 MAVI</option>
-<option value="V51 MISA">V51 MISA</option>
-<option value="V52 JUE">V52 JUE</option>
-<option value="V52 LUN">V52 LUN</option>
-<option value="V52 MAVI">V52 MAVI</option>
-<option value="V52 MISA">V52 MISA</option>
-<option value="V52 TEMP">V52 TEMP</option>
-<option value="V71 JUE">V71 JUE</option>
-<option value="V71 LUN">V71 LUN</option>
-<option value="V71 MAR">V71 MAR</option>
-<option value="V71 MIE">V71 MIE</option>
-<option value="V71 VIE">V71 VIE</option>
-<option value="V73 JUE">V73 JUE</option>
-<option value="V73 MAR">V73 MAR</option>
-<option value="V73 MISA">V73 MISA</option>
-<option value="V73 VIE">V73 VIE</option>
-<option value="V74 LUJU">V74 LUJU</option>
-<option value="V74 MAVI">V74 MAVI</option>
-<option value="VENTA INTERNA">VENTA INTERNA</option></select>
     <input id="rc-q" type="text" placeholder="Buscar PDV..." oninput="renderResumenCli()" style="width:160px">
     <span class="flt-count" id="rc-count"></span>
     <button class="exp-btn" onclick="exportResumenCli()">⬇ CSV</button>
@@ -624,399 +431,417 @@ tr:hover td{background:#1c2128}
 </div>
 
 </div><!-- /content -->
+
 <script src="data.js"></script>
 <script>
+
 const $=id=>document.getElementById(id);
-const SEM_ORDER=['0%','0-25%','25-50%','50-75%','>=75%'];
-const SEM_COLORS={'0%':'#e74c3c','0-25%':'#c0392b','25-50%':'#e67e22','50-75%':'#f1c40f','>=75%':'#1abc9c'};
-const SEM_LABELS={'0%':'Sin venta','0-25%':'Crítico 0–25%','25-50%':'Bajo 25–50%','50-75%':'En desarrollo 50–75%','>=75%':'Repagan ≥75%'};
-const UDN_ICON={'CERVEZAS CMQ':'🍺','UNG':'🥤','UNG (Red Bull)':'🐂','AGUAS ECO':'💧'};
-const UDN_SHORT={'CERVEZAS CMQ':'CVZA','UNG':'UNG','UNG (Red Bull)':'RED BULL','AGUAS ECO':'AGUAS'};
-const UDN_CLASS={'CERVEZAS CMQ':'b-org','UNG':'b-eme','UNG (Red Bull)':'b-rb','AGUAS ECO':'b-agua'};
+const SC={'0%':'#e74c3c','0-25%':'#c0392b','25-50%':'#e67e22','50-75%':'#f1c40f','>=75%':'#1abc9c'};
+const SL=['0%','0-25%','25-50%','50-75%','>=75%'];
+const SN={'0%':'Sin venta','0-25%':'Crítico 0–25%','25-50%':'25–50%','50-75%':'50–75%','>=75%':'Repagan ≥75%'};
+const UI={'CERVEZAS CMQ':'🍺','UNG':'🥤','UNG (Red Bull)':'🐂','AGUAS ECO':'💧'};
+const UC={'CERVEZAS CMQ':'b-org','UNG':'b-eme','UNG (Red Bull)':'b-rb','AGUAS ECO':'b-agua'};
+const US={'CERVEZAS CMQ':'CVZA','UNG':'UNG','UNG (Red Bull)':'RB','AGUAS ECO':'AGUAS'};
+const RUTAS_TEMP=new Set(["V12 TEMP", "V31 TEMP", "V34 TEMP", "V35 TEMP", "V41 TEMP", "V52 TEMP"]);
 
-function sc(pct){return pct>=75?'#1abc9c':pct>=50?'#f1c40f':pct>=25?'#e67e22':'#e74c3c';}
-function fHl(v){return(v||0).toFixed(3);}
-function fPct(v){return(v||0).toFixed(1)+'%';}
-function pbar(pct,col){const w=Math.min(pct,100);return`<div class="pbar"><div class="pbar-bg"><div class="pbar-fill" style="width:${w}%;background:${col}"></div></div><span style="font-size:9px;font-weight:700;color:${col}">${fPct(pct)}</span></div>`;}
-function recBadge(r){
-  if(r==='Mantener')return'<span class="rec-m">✅ Mantener</span>';
-  if(r==='Evaluar retiro')return'<span class="rec-r">⛔ Retiro</span>';
-  if(r==='Monitorear')return'<span class="rec-mo">⚠️ Monitorear</span>';
-  return`<span class="badge b-blu">${r}</span>`;
+function sc(p){return p>=75?'#1abc9c':p>=50?'#f1c40f':p>=25?'#e67e22':'#e74c3c';}
+function fHl(v){return(+v||0).toFixed(3);}
+function pbar(p,col){const w=Math.min(+p||0,100);return`<div class="pbar"><div class="pbar-bg"><div class="pbar-fill" style="width:${w}%;background:${col}"></div></div><span style="font-size:9px;font-weight:700;color:${col}">${(+p||0).toFixed(1)}%</span></div>`;}
+function udnB(u){return`<span class="badge ${UC[u]||'b-blu'}">${UI[u]||''} ${US[u]||u}</span>`;}
+function tipoB(d){return d.es_rb?'<span class="badge b-rb">🐂 RB</span>':d.es_agua?'<span class="badge b-agua">💧 Agua</span>':'<span class="badge b-blu">Gen</span>';}
+function tempB(d){return d.es_temp?'<span class="badge b-temp" style="background:#f59e0b18;color:#f59e0b;border:1px solid #f59e0b33">🌊 Temp.</span>':'<span style="font-size:9px;color:var(--mut)">Regular</span>';}
+function recB(r){return r==='Mantener'?'<span class="rec-m">✅ Mantener</span>':r==='Evaluar retiro'?'<span class="rec-r">⛔ Retiro</span>':r==='Monitorear'?'<span class="rec-mo">⚠️ Monitorear</span>':`<span class="badge b-blu">${r}</span>`;}
+
+// Sort
+const _s={f:null,d:1};
+function srt(field,th,fn){
+  _s.d=_s.f===field?-_s.d:1;_s.f=field;
+  document.querySelectorAll('th.sort').forEach(t=>t.classList.remove('asc','desc'));
+  th.classList.add(_s.d===1?'asc':'desc');fn();
 }
-function udnBadge(u){return`<span class="badge ${UDN_CLASS[u]||'b-blu'}">${UDN_ICON[u]||''} ${UDN_SHORT[u]||u}</span>`;}
-function tipoBadge(d){
-  if(d.es_rb) return'<span class="badge b-rb">🐂 RB</span>';
-  if(d.es_agua) return'<span class="badge b-agua">💧 Agua</span>';
-  return'<span class="badge b-blu">Gen</span>';
-}
-function semColor(sem){return SEM_COLORS[sem]||'#7d8590';}
-
-const sups=[...new Set(DATA_EDF.map(d=>d.sup))].filter(Boolean).sort();
-const pros =[...new Set(DATA_EDF.map(d=>d.pro))].filter(Boolean).sort();
-
-function initSelects(){
-  // Llenar todos los selects de supervisores y promotores
-  ['c-sup','e-sup','vc-sup','a-sup'].forEach(id=>{
-    const el=$(id);if(!el)return;
-    sups.forEach(s=>{const o=document.createElement('option');o.value=s;o.textContent=s;el.appendChild(o);});
+function doSort(rows){
+  if(!_s.f)return rows;
+  return[...rows].sort((a,b)=>{
+    let av=a[_s.f]??'',bv=b[_s.f]??'';
+    return(typeof av==='number'&&typeof bv==='number'?(av-bv):av.toString().localeCompare(bv.toString(),'es'))*_s.d;
   });
-  ['c-pro','e-pro','vc-pro','a-pro'].forEach(id=>{
-    const el=$(id);if(!el)return;
-    pros.forEach(p=>{const o=document.createElement('option');o.value=p;o.textContent=p;el.appendChild(o);});
-  });
-  const ps=$('prom-sel');if(ps){ps.innerHTML='';pros.forEach(p=>{const o=document.createElement('option');o.value=p;o.textContent=p;ps.appendChild(o);});}
 }
+
+// Filters
+function fv(id){const el=$(id);return el?el.value:'';}
+function applyRT(rows,id){
+  const v=$(id);if(!v||!v.value)return rows;
+  if(v.value==='__temp__')return rows.filter(d=>RUTAS_TEMP.has(d.ruta||''));
+  if(v.value==='__notemp__')return rows.filter(d=>!RUTAS_TEMP.has(d.ruta||''));
+  return rows.filter(d=>d.ruta===v.value);
+}
+function applyTp(rows,id){
+  const v=$(id);if(!v||!v.value)return rows;
+  return rows.filter(d=>v.value==='temp'?d.es_temp:!d.es_temp);
+}
+
 function showTab(id,el){
   document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
   document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
   $('tab-'+id).classList.add('active');el.classList.add('active');
 }
 
-// ── RESUMEN ──────────────────────────────────────────────
+function initSelects(){
+  const sups=[...new Set(DATA_EDF.map(d=>d.sup))].filter(Boolean).sort();
+  const pros=[...new Set(DATA_EDF.map(d=>d.pro))].filter(Boolean).sort();
+  ['c-sup','e-sup','vc-sup','a-sup','pi-sup'].forEach(id=>{
+    const el=$(id);if(!el)return;
+    sups.forEach(s=>{const o=document.createElement('option');o.value=s;o.textContent=s;el.appendChild(o);});
+  });
+  ['c-pro','e-pro','vc-pro','a-pro','pi-pro'].forEach(id=>{
+    const el=$(id);if(!el)return;
+    pros.forEach(p=>{const o=document.createElement('option');o.value=p;o.textContent=p;el.appendChild(o);});
+  });
+  const ps=$('prom-sel');if(ps){ps.innerHTML='';pros.forEach(p=>{const o=document.createElement('option');o.value=p;o.textContent=p;ps.appendChild(o);});}
+  const rcS=$('rc-sup'),rcP=$('rc-pro');
+  if(rcS)sups.forEach(s=>{const o=document.createElement('option');o.value=s;o.textContent=s;rcS.appendChild(o);});
+  if(rcP)pros.forEach(p=>{const o=document.createElement('option');o.value=p;o.textContent=p;rcP.appendChild(o);});
+}
+
+// RESUMEN
 function renderResumen(){
   const tot=DATA_EDF.length;
   const rep=DATA_EDF.filter(d=>d.ok_mes===1).length;
   const nrep=DATA_EDF.filter(d=>d.ok_mes===0&&d.meta>0).length;
-  const tot_m=DATA_EDF.filter(d=>d.meta>0).length;
-  const pct=tot_m>0?(rep/tot_m*100).toFixed(1):'0';
-  const vc3=DATA_EDF.filter(d=>d.vc3).length;
-  const vc6=DATA_EDF.filter(d=>d.vc6).length;
+  const tm=DATA_EDF.filter(d=>d.meta>0).length;
+  const pct=tm>0?(rep/tm*100).toFixed(1):'0';
+  const vc3=DATA_EDF.filter(d=>d.vc3===1).length;
+  const vc6=DATA_EDF.filter(d=>d.vc6===1).length;
   $('kpi-grid').innerHTML=`
     <div class="kpi k-tot" onclick="abrirModal('todos')"><div class="kpi-lbl">Total EDF</div><div class="kpi-val">${tot}</div><div class="kpi-sub">equipos instalados</div></div>
     <div class="kpi k-rep" onclick="abrirModal('>=75%')"><div class="kpi-lbl">OK Mes ≥75%</div><div class="kpi-val">${rep}</div><div class="kpi-sub">cumplen meta</div></div>
-    <div class="kpi k-nrep" onclick="abrirModal('nrep')"><div class="kpi-lbl">No OK Mes</div><div class="kpi-val">${nrep}</div><div class="kpi-sub">bajo 75% meta</div></div>
+    <div class="kpi k-nrep" onclick="abrirModal('nrep')"><div class="kpi-lbl">No OK Mes</div><div class="kpi-val">${nrep}</div><div class="kpi-sub">bajo meta</div></div>
     <div class="kpi k-pct"><div class="kpi-lbl">% Cumplimiento</div><div class="kpi-val">${pct}%</div><div class="kpi-sub">con meta asignada</div></div>
-    <div class="kpi k-vc" onclick="switchVCtab('3m')"><div class="kpi-lbl">Venta Cero 3M</div><div class="kpi-val">${vc3}</div><div class="kpi-sub">sin compra mar–may</div></div>
-    <div class="kpi k-vc" onclick="switchVCtab('6m')"><div class="kpi-lbl">Venta Cero 6M</div><div class="kpi-val">${vc6}</div><div class="kpi-sub">sin compra dic–may</div></div>
-  `;
-  // Semáforo
-  const sc_={};SEM_ORDER.forEach(s=>sc_[s]=DATA_EDF.filter(d=>d.sem===s).length);
-  $('sem-bar').innerHTML=SEM_ORDER.map((s,i)=>{const w=tot>0?(sc_[s]/tot*100).toFixed(1):0;return`<div class="seg s${i}" style="width:${w}%" title="${SEM_LABELS[s]}: ${sc_[s]}" onclick="abrirModal('${s}')">${sc_[s]}</div>`;}).join('');
-  $('sem-leg').innerHTML=SEM_ORDER.map(s=>`<div class="leg-item" onclick="abrirModal('${s}')"><div class="leg-dot" style="background:${SEM_COLORS[s]}"></div>${SEM_LABELS[s]} (${sc_[s]})</div>`).join('');
-  // UdN
-  const udns=['CERVEZAS CMQ','UNG','UNG (Red Bull)','AGUAS ECO'];
-  $('udn-rows').innerHTML=udns.map(u=>{
-    const g=DATA_EDF.filter(d=>d.udn===u);
-    const r=g.filter(d=>d.ok_mes===1).length;
-    const pp=g.length>0?(r/g.length*100).toFixed(0):0;
-    const col=sc(pp);
-    const nrep_u=g.filter(d=>d.ok_mes===0&&d.meta>0).length;
-    return`<div class="prom-row" style="cursor:pointer" onclick="abrirModal('todos','','','${u}')">
-      <div class="prom-name">${UDN_ICON[u]||''} ${u}</div>
-      <div class="prom-n">${g.length} EDF</div>
-      <div style="font-size:10px;font-weight:700;color:var(--eme);margin-left:6px">${r}✅</div>
-      <div style="font-size:10px;color:var(--red);margin-left:4px">${nrep_u}⛔</div>
-      <div style="flex:1;margin:0 8px;background:var(--sur2);border-radius:2px;height:4px;overflow:hidden"><div style="width:${pp}%;height:100%;background:${col};border-radius:2px"></div></div>
-      <div style="font-size:11px;font-weight:700;color:${col};width:34px;text-align:right">${pp}%</div>
-    </div>`;
+    <div class="kpi k-vc"><div class="kpi-lbl">Venta Cero 3M</div><div class="kpi-val">${vc3}</div><div class="kpi-sub">sin compra abr–jun</div></div>
+    <div class="kpi k-vc"><div class="kpi-lbl">Venta Cero 6M</div><div class="kpi-val">${vc6}</div><div class="kpi-sub">sin compra ene–jun</div></div>`;
+  const sc_={};SL.forEach(s=>sc_[s]=DATA_EDF.filter(d=>d.sem===s).length);
+  $('sem-bar').innerHTML=SL.map((s,i)=>{const w=tot>0?(sc_[s]/tot*100).toFixed(1):0;return`<div class="seg s${i}" style="width:${w}%" title="${SN[s]}: ${sc_[s]}" onclick="abrirModal('${s}')">${sc_[s]}</div>`;}).join('');
+  $('sem-leg').innerHTML=SL.map(s=>`<div class="leg-item" onclick="abrirModal('${s}')"><div class="leg-dot" style="background:${SC[s]}"></div>${SN[s]} (${sc_[s]})</div>`).join('');
+  $('udn-rows').innerHTML=['CERVEZAS CMQ','UNG','UNG (Red Bull)','AGUAS ECO'].map(u=>{
+    const g=DATA_EDF.filter(d=>d.udn===u);const n=g.length;
+    const r=g.filter(d=>d.ok_mes===1).length;const nr=g.filter(d=>d.ok_mes===0&&d.meta>0).length;
+    const pp=n>0?(r/n*100).toFixed(0):0;const col=sc(pp);
+    return`<div class="prom-row" style="cursor:pointer" onclick="abrirModal('todos','','','${u}')">${udnB(u)}<span style="font-size:9px;color:var(--mut);margin-left:4px">${n} EDF</span><span style="font-size:10px;font-weight:700;color:var(--eme);margin-left:6px">${r}✅</span><span style="font-size:10px;color:var(--red);margin-left:3px">${nr}⛔</span><div style="flex:1;margin:0 8px;background:var(--sur2);border-radius:2px;height:4px;overflow:hidden"><div style="width:${pp}%;height:100%;background:${col}"></div></div><span style="font-size:11px;font-weight:700;color:${col};width:32px;text-align:right">${pp}%</span></div>`;
   }).join('');
-  // Rec
-  const rmap={'Mantener':'var(--eme)','Monitorear':'#d4a800','Evaluar retiro':'var(--red)','Sin meta':'var(--mut)'};
-  $('rec-rows').innerHTML=['Mantener','Monitorear','Evaluar retiro','Sin meta'].map(r=>{
+  $('rec-rows').innerHTML=[['Mantener','var(--eme)'],['Monitorear','#c8a800'],['Evaluar retiro','var(--red)'],['Sin meta','var(--mut)']].map(([r,col])=>{
     const n=DATA_CLI.filter(d=>d.rec===r).length;
-    const col=rmap[r];
-    return`<div class="prom-row"><div class="prom-name">${recBadge(r)}</div><div class="prom-n">${n} PDV</div><div style="font-size:10px;color:${col};font-weight:700;width:42px;text-align:right">${DATA_CLI.length>0?(n/DATA_CLI.length*100).toFixed(0):0}%</div></div>`;
+    return`<div class="prom-row">${recB(r)}<span class="flt-count">${n} PDV</span><span style="font-size:10px;color:${col};font-weight:700;width:38px;text-align:right">${DATA_CLI.length>0?(n/DATA_CLI.length*100).toFixed(0):0}%</span></div>`;
   }).join('');
-  // Top criticos
   $('top-criticos').innerHTML=DATA_EDF.filter(d=>d.meta>0).sort((a,b)=>a.pct_mes-b.pct_mes).slice(0,10).map((d,i)=>`<tr>
-    <td style="color:var(--red);font-family:'Barlow Condensed',sans-serif;font-size:17px;font-weight:900">${i+1}</td>
-    <td><div style="font-weight:600">${d.pdv}</div></td>
-    <td style="font-size:9px;color:var(--mut)">${d.loc}</td>
-    <td style="font-size:9px">${d.pro}</td>
-    <td><span class="badge b-org">${d.mod}</span></td>
-    <td>${tipoBadge(d)}</td>
-    <td style="text-align:right">${fHl(d.meta)}</td>
+    <td style="color:var(--red);font-family:'Barlow Condensed',sans-serif;font-size:16px;font-weight:900">${i+1}</td>
+    <td style="font-weight:600">${d.pdv}</td><td style="font-size:9px;color:var(--mut)">${d.loc}</td>
+    <td style="font-size:9px">${d.pro}</td><td><span class="badge b-org">${d.mod}</span></td>
+    <td>${tipoB(d)}</td><td style="text-align:right">${fHl(d.meta)}</td>
     <td style="text-align:right">${fHl(d.a_mes)}</td>
     <td style="text-align:right;color:var(--red);font-weight:700">${fHl(Math.abs(d.dif_mes))}</td>
-    <td>${pbar(d.pct_mes,SEM_COLORS[d.sem])}</td>
-  </tr>`).join('');
+    <td>${pbar(d.pct_mes,SC[d.sem])}</td></tr>`).join('');
 }
 
-// ── CLIENTES ─────────────────────────────────────────────
+// CLIENTES
 function filterCLI(){
   let r=DATA_CLI;
-  const s=$('c-sup').value,p=$('c-pro').value,u=$('c-udn').value,sm=$('c-sem').value,rc=$('c-rec').value,q=$('c-q').value.toLowerCase();
+  const s=fv('c-sup'),p=fv('c-pro'),u=fv('c-udn'),sm=fv('c-sem'),rc=fv('c-rec'),q=fv('c-q').toLowerCase();
   if(s)r=r.filter(d=>d.sup===s);if(p)r=r.filter(d=>d.pro===p);if(u)r=r.filter(d=>d.udn===u);
   if(sm)r=r.filter(d=>d.sem===sm);if(rc)r=r.filter(d=>d.rec===rc);
-  r=applyRutaFilter(r,'c');
+  r=applyRT(r,'c-rt');
   if(q)r=r.filter(d=>d.pdv.toLowerCase().includes(q)||(d.cod+'').includes(q));
-  return applSort(r);
+  return doSort(r);
 }
 function renderClientes(){
   const rows=filterCLI();$('c-count').textContent=`${rows.length} registros`;
   $('c-body').innerHTML=rows.map(d=>`<tr>
-    <td><div style="font-weight:600">${d.pdv}</div></td>
-    <td style="color:var(--mut)">${d.cod}</td>
-    <td style="font-size:9px;color:var(--mut)">${d.loc}</td>
-    <td style="font-size:9px;color:var(--mut)">${d.ruta||''}</td>
-    <td style="font-size:9px">${d.sup}</td>
-    <td style="font-size:9px">${d.pro}</td>
-    <td>${udnBadge(d.udn)}</td>
-    <td style="text-align:center;font-weight:700">${d.n_edf}</td>
+    <td style="font-weight:600">${d.pdv}</td><td style="color:var(--mut)">${d.cod}</td>
+    <td style="font-size:9px;color:var(--mut)">${d.loc}</td><td style="font-size:9px;color:var(--mut)">${d.ruta||''}</td>
+    <td style="font-size:9px">${d.sup}</td><td style="font-size:9px">${d.pro}</td>
+    <td>${udnB(d.udn)}</td><td style="text-align:center;font-weight:700">${d.n_edf}</td>
     <td style="text-align:center;font-weight:700;color:${(d.n_ok_mes||0)>0?'var(--eme)':'var(--red)'}">${d.n_ok_mes||0}/${d.n_edf}</td>
-    <td style="text-align:right">${fHl(d.meta)}</td>
-    <td style="text-align:right">${fHl(d.hl_mes)}</td>
-    <td>${pbar(d.pct_mes,SEM_COLORS[d.sem])}</td>
-    <td>${pbar(d.pct_3m,sc(d.pct_3m))}</td>
-    <td>${pbar(d.pct_6m,sc(d.pct_6m))}</td>
-    <td>${pbar(d.pct_12m||0,sc(d.pct_12m||0))}</td>
-    <td>${recBadge(d.rec)}</td>
-  </tr>`).join('');
+    <td style="text-align:right">${fHl(d.meta)}</td><td style="text-align:right">${fHl(d.hl_mes)}</td>
+    <td>${pbar(d.pct_mes,SC[d.sem])}</td><td>${pbar(d.pct_3m,sc(d.pct_3m))}</td>
+    <td>${pbar(d.pct_12m||0,sc(d.pct_12m||0))}</td><td>${recB(d.rec)}</td><td>${tempB(d)}</td></tr>`).join('');
 }
 
-// ── DETALLE EDF ───────────────────────────────────────────
+// POR EDF
 function filterEDF(){
   let r=DATA_EDF;
-  const s=$('e-sup').value,p=$('e-pro').value,u=$('e-udn').value,sm=$('e-sem').value;
-  const tipo=$('e-tipo').value,q=$('e-q').value.toLowerCase();
+  const s=fv('e-sup'),p=fv('e-pro'),u=fv('e-udn'),sm=fv('e-sem'),tp=fv('e-tipo'),q=fv('e-q').toLowerCase();
   if(s)r=r.filter(d=>d.sup===s);if(p)r=r.filter(d=>d.pro===p);if(u)r=r.filter(d=>d.udn===u);
   if(sm)r=r.filter(d=>d.sem===sm);
-  if(tipo==='rb') r=r.filter(d=>d.es_rb);
-  else if(tipo==='agua') r=r.filter(d=>d.es_agua);
-  else if(tipo==='gen') r=r.filter(d=>!d.es_rb&&!d.es_agua);
+  if(tp==='rb')r=r.filter(d=>d.es_rb);else if(tp==='agua')r=r.filter(d=>d.es_agua);else if(tp==='gen')r=r.filter(d=>!d.es_rb&&!d.es_agua);
+  r=applyTp(r,'e-temp');r=applyRT(r,'e-rt');
   if(q)r=r.filter(d=>d.pdv.toLowerCase().includes(q)||d.ser.toLowerCase().includes(q)||(d.cod+'').includes(q));
-  return r;
+  return doSort(r);
 }
 function renderEDF(){
   const rows=filterEDF();$('e-count').textContent=`${rows.length} EDF`;
   $('e-body').innerHTML=rows.map(d=>{
-    const dif_col=d.dif_mes>=0?'var(--eme)':'var(--red)';
+    const dc=d.dif_mes>=0?'var(--eme)':'var(--red)';
     const cls=d.ok_mes?'edf-row-rep':d.pct_mes>0?'edf-row-par':'edf-row-nrep';
     return`<tr class="${cls}">
-      <td><div style="font-weight:600">${d.pdv}</div></td>
-      <td style="color:var(--mut)">${d.cod}</td>
-      <td style="font-size:9px;color:var(--mut)">${d.loc}</td>
-      <td style="font-size:9px">${d.pro}</td>
-      <td>${udnBadge(d.udn)}</td>
-      <td>${tipoBadge(d)}</td>
-      <td><span class="badge b-org">${d.mod}</span></td>
-      <td style="font-size:8px;color:var(--mut)">${d.ser}</td>
+      <td style="font-weight:600">${d.pdv}</td><td style="color:var(--mut)">${d.cod}</td>
+      <td style="font-size:9px;color:var(--mut)">${d.loc}</td><td style="font-size:9px">${d.pro}</td>
+      <td>${udnB(d.udn)}</td><td>${tipoB(d)}</td><td>${tempB(d)}</td>
+      <td><span class="badge b-org">${d.mod}</span></td><td style="font-size:8px;color:var(--mut)">${d.ser}</td>
       <td style="text-align:right">${fHl(d.meta)}</td>
       <td style="text-align:right;color:var(--yel);font-weight:700">${fHl(d.ok_thr||d.meta*0.75)}</td>
       <td style="text-align:right">${fHl(d.a_mes)}</td>
-      <td style="text-align:right;color:${dif_col};font-weight:700">${d.dif_mes>=0?'+':''}${fHl(d.dif_mes)}</td>
-      <td>${pbar(d.pct_mes,SEM_COLORS[d.sem])}</td>
-      <td style="text-align:center;font-size:13px">${d.ok_mes?'✅':'⛔'}</td>
-      <td>${pbar(d.pct_3m,sc(d.pct_3m))}</td>
-      <td style="text-align:center;font-size:13px">${d.ok_3m?'✅':'⛔'}</td>
-      <td>${pbar(d.pct_6m,sc(d.pct_6m))}</td>
-      <td style="text-align:center;font-size:13px">${d.ok_6m?'✅':'⛔'}</td>
-      <td>${pbar(d.pct_12m||0,sc(d.pct_12m||0))}</td>
-      <td style="text-align:center;font-size:13px">${(d.ok_12m||0)?'✅':'⛔'}</td>
-      <td>${recBadge(d.rec)}</td>
-    </tr>`;
+      <td style="text-align:right;color:${dc};font-weight:700">${d.dif_mes>=0?'+':''}${fHl(d.dif_mes)}</td>
+      <td>${pbar(d.pct_mes,SC[d.sem])}</td><td style="text-align:center">${d.ok_mes?'✅':'⛔'}</td>
+      <td>${pbar(d.pct_3m,sc(d.pct_3m))}</td><td style="text-align:center">${d.ok_3m?'✅':'⛔'}</td>
+      <td>${pbar(d.pct_6m||0,sc(d.pct_6m||0))}</td><td style="text-align:center">${d.ok_6m?'✅':'⛔'}</td>
+      <td>${pbar(d.pct_12m||0,sc(d.pct_12m||0))}</td><td style="text-align:center">${(d.ok_12m||0)?'✅':'⛔'}</td>
+      <td>${recB(d.rec)}</td></tr>`;
   }).join('');
 }
 
-// ── SUPERVISORES ─────────────────────────────────────────
+// SUPERVISORES
 function renderSupervisores(){
+  const sups=[...new Set(DATA_EDF.map(d=>d.sup))].filter(Boolean).sort();
   $('sup-grid').innerHTML=sups.map(s=>{
-    const g=DATA_EDF.filter(d=>d.sup===s);
-    const n=g.length;const r=g.filter(d=>d.ok_mes===1).length;
+    const g=DATA_EDF.filter(d=>d.sup===s);const n=g.length;
+    const r=g.filter(d=>d.ok_mes===1).length;const r12=g.filter(d=>(d.ok_12m||0)===1).length;
     const pp=n>0?(r/n*100).toFixed(0):0;const col=sc(pp);
-    const r12=g.filter(d=>(d.ok_12m||0)===1).length;
     const pp12=n>0?(r12/n*100).toFixed(0):0;
-    const sc_={};SEM_ORDER.forEach(k=>sc_[k]=g.filter(d=>d.sem===k).length);
     const gc=DATA_CLI.filter(d=>d.sup===s);
-    const mant=gc.filter(d=>d.rec==='Mantener').length;
-    const ret=gc.filter(d=>d.rec==='Evaluar retiro').length;
     return`<div class="sup-card" onclick="abrirModal('todos','${s}')">
-      <div class="sup-card-hdr">
-        <h3>${s}</h3>
-        <div style="text-align:right">
-          <div style="font-family:'Barlow Condensed',sans-serif;font-size:22px;font-weight:900;color:${col}">${pp}%</div>
-          <div style="font-size:9px;color:var(--vio)">12M: ${pp12}%</div>
-        </div>
+      <div class="sup-card-hdr"><h3>${s}</h3>
+        <div style="text-align:right"><div style="font-family:'Barlow Condensed',sans-serif;font-size:22px;font-weight:900;color:${col}">${pp}%</div>
+        <div style="font-size:9px;color:var(--vio)">12M: ${pp12}%</div></div>
       </div>
       <div class="sup-card-body">
         <div style="display:flex;justify-content:space-between;font-size:9px;color:var(--mut)"><span>${n} EDF</span><span>${r} OK mes / ${r12} OK anual</span></div>
-        <div class="sup-sbar">${SEM_ORDER.map((k,i)=>{const w=n>0?(sc_[k]/n*100).toFixed(1):0;const cols=['#e74c3c','#c0392b','#e67e22','#f1c40f','#1abc9c'];return w>0?`<div style="width:${w}%;background:${cols[i]}"></div>`:''}).join('')}</div>
-        <div style="display:flex;gap:9px;font-size:9px"><span style="color:var(--eme)">${mant} mantener</span><span style="color:var(--red)">${ret} retiro</span></div>
-      </div>
-    </div>`;
+        <div style="display:flex;gap:8px;font-size:9px;margin-top:4px">
+          <span style="color:var(--eme)">${gc.filter(d=>d.rec==='Mantener').length} mantener</span>
+          <span style="color:var(--red)">${gc.filter(d=>d.rec==='Evaluar retiro').length} retiro</span>
+        </div>
+      </div></div>`;
   }).join('');
 }
 
-// ── PROMOTORES ───────────────────────────────────────────
+// PROMOTORES
 function renderPromotores(){
+  const pros=[...new Set(DATA_EDF.map(d=>d.pro))].filter(Boolean).sort();
   const rank=pros.map(p=>{
     const g=DATA_EDF.filter(d=>d.pro===p&&d.meta>0);
     const r=g.filter(d=>d.ok_mes===1).length;
-    const pp=g.length>0?(r/g.length*100).toFixed(1):0;
-    return{p,n:g.length,r,pp:parseFloat(pp)};
+    return{p,n:g.length,r,pp:g.length>0?(r/g.length*100):0};
   }).sort((a,b)=>b.pp-a.pp);
   $('prom-ranking').innerHTML=rank.map((r,i)=>{
     const col=sc(r.pp);
     return`<div class="prom-row" style="cursor:pointer" onclick="$('prom-sel').value='${r.p}';renderPromDet()">
-      <div style="font-family:'Barlow Condensed',sans-serif;font-size:19px;font-weight:900;color:${col};width:20px">${i+1}</div>
+      <div style="font-family:'Barlow Condensed',sans-serif;font-size:18px;font-weight:900;color:${col};width:18px">${i+1}</div>
       <div class="prom-name">${r.p}</div>
-      <div class="prom-n">${r.n} EDF</div>
-      <div style="width:36px;text-align:right;font-size:10px;font-weight:700;color:${col}">${r.pp}%</div>
+      <span style="font-size:9px;color:var(--mut)">${r.n} EDF</span>
+      <span style="font-size:10px;font-weight:700;color:${col};width:38px;text-align:right">${r.pp.toFixed(1)}%</span>
     </div>`;
   }).join('');
   renderPromDet();
 }
 function renderPromDet(){
-  const p=$('prom-sel').value;
+  const p=$('prom-sel').value;if(!p)return;
   const g=DATA_EDF.filter(d=>d.pro===p).sort((a,b)=>a.pct_mes-b.pct_mes);
-  const sc_={};SEM_ORDER.forEach(k=>sc_[k]=g.filter(d=>d.sem===k).length);
-  $('prom-det').innerHTML=`
-    <div style="display:flex;gap:5px;flex-wrap:wrap;margin-bottom:10px">
-      ${SEM_ORDER.map((k,i)=>{if(!sc_[k])return'';const cols=['#e74c3c','#c0392b','#e67e22','#f1c40f','#1abc9c'];return`<span class="badge" style="background:${cols[i]}18;color:${cols[i]};border:1px solid ${cols[i]}33;cursor:pointer" onclick="abrirModal('${k}','','${p}')">${sc_[k]} ${SEM_LABELS[k]}</span>`;}).join('')}
-    </div>
-    <div class="tbl-wrap" style="max-height:340px"><table><thead><tr>
-      <th>PDV</th><th>UdN</th><th>Tipo</th><th>Modelo</th><th>Meta</th><th>Asig.</th><th>% Mes</th><th>% 12M</th><th>Rec.</th>
-    </tr></thead><tbody>${g.map(d=>`<tr>
-      <td><div style="font-weight:600">${d.pdv}</div><div style="font-size:8px;color:var(--mut)">${d.loc}</div></td>
-      <td>${udnBadge(d.udn)}</td><td>${tipoBadge(d)}</td>
-      <td><span class="badge b-org">${d.mod}</span></td>
-      <td style="text-align:right">${fHl(d.meta)}</td>
-      <td style="text-align:right">${fHl(d.a_mes)}</td>
-      <td>${pbar(d.pct_mes,SEM_COLORS[d.sem])}</td>
-      <td>${pbar(d.pct_12m||0,sc(d.pct_12m||0))}</td>
-      <td>${recBadge(d.rec)}</td>
-    </tr>`).join('')}</tbody></table></div>`;
+  $('prom-det').innerHTML=`<div class="tbl-wrap" style="max-height:340px"><table><thead><tr>
+    <th>PDV</th><th>UdN</th><th>Tipo</th><th>Modelo</th><th>Meta</th><th>Asig.</th><th>% Mes</th><th>% 12M</th><th>Tipo PDV</th><th>Rec.</th>
+  </tr></thead><tbody>${g.map(d=>`<tr>
+    <td style="font-weight:600">${d.pdv}</td><td>${udnB(d.udn)}</td><td>${tipoB(d)}</td>
+    <td><span class="badge b-org">${d.mod}</span></td>
+    <td style="text-align:right">${fHl(d.meta)}</td><td style="text-align:right">${fHl(d.a_mes)}</td>
+    <td>${pbar(d.pct_mes,SC[d.sem])}</td><td>${pbar(d.pct_12m||0,sc(d.pct_12m||0))}</td>
+    <td>${tempB(d)}</td><td>${recB(d.rec)}</td></tr>`).join('')}</tbody></table></div>`;
 }
 
-// ── VENTA CERO ───────────────────────────────────────────
+// VENTA CERO
 let vcMode='3m';
 function switchVC(mode,el){vcMode=mode;document.querySelectorAll('.vc-tab').forEach(t=>t.classList.remove('active'));el.classList.add('active');renderVC();}
 function switchVCtab(mode){showTab('venta-cero',document.querySelectorAll('.tabs .tab')[5]);document.querySelectorAll('.vc-tab')[mode==='3m'?0:mode==='6m'?1:2].classList.add('active');vcMode=mode;renderVC();}
 function filterVC(){
   const flag=vcMode==='3m'?'vc3':vcMode==='6m'?'vc6':'vc12';
-  let r=DATA_EDF.filter(d=>d[flag]);
-  const s=$('vc-sup').value,p=$('vc-pro').value,u=$('vc-udn').value,q=$('vc-q').value.toLowerCase();
+  let r=DATA_EDF.filter(d=>d[flag]===1);
+  const s=fv('vc-sup'),p=fv('vc-pro'),u=fv('vc-udn'),q=fv('vc-q').toLowerCase();
   if(s)r=r.filter(d=>d.sup===s);if(p)r=r.filter(d=>d.pro===p);if(u)r=r.filter(d=>d.udn===u);
-  r=applyRutaFilter(r,'vc');
+  r=applyTp(r,'vc-temp');r=applyRT(r,'vc-rt');
   if(q)r=r.filter(d=>d.pdv.toLowerCase().includes(q)||(d.cod+'').includes(q));
-  return applSort(r);
+  return doSort(r);
 }
 function renderVC(){
   const flag=vcMode==='3m'?'vc3':vcMode==='6m'?'vc6':'vc12';
-  const all=DATA_EDF.filter(d=>d[flag]);
-  const lbl=vcMode==='3m'?'3M (mar–may)':vcMode==='6m'?'6M (dic–may)':'12M (jun25–may26)';
+  const all=DATA_EDF.filter(d=>d[flag]===1);
+  const lbl=vcMode==='3m'?'3M (abr–jun)':vcMode==='6m'?'6M (ene–jun)':'12M (jul25–jun26)';
   $('vc-kpis').innerHTML=`
     <div class="kpi k-nrep"><div class="kpi-lbl">Total VC ${lbl}</div><div class="kpi-val">${all.length}</div><div class="kpi-sub">EDF sin compra</div></div>
-    <div class="kpi" style="border-color:#e8791b33"><div class="kpi-lbl" style="color:#e8791b">🍺 Cervezas</div><div class="kpi-val" style="color:#e8791b;font-family:'Barlow Condensed',sans-serif;font-size:32px;font-weight:900">${all.filter(d=>d.udn==='CERVEZAS CMQ').length}</div></div>
-    <div class="kpi" style="border-color:#1abc9c33"><div class="kpi-lbl" style="color:var(--eme)">🥤 UNG</div><div class="kpi-val" style="color:var(--eme);font-family:'Barlow Condensed',sans-serif;font-size:32px;font-weight:900">${all.filter(d=>d.udn==='UNG').length}</div></div>
-    <div class="kpi" style="border-color:#c0392b33"><div class="kpi-lbl" style="color:var(--red)">🐂 Red Bull</div><div class="kpi-val" style="color:var(--red);font-family:'Barlow Condensed',sans-serif;font-size:32px;font-weight:900">${all.filter(d=>d.udn==='UNG (Red Bull)').length}</div></div>
-  `;
+    <div class="kpi" style="border-color:#e8791b33"><div class="kpi-lbl" style="color:var(--org)">🍺 Cervezas</div><div class="kpi-val" style="color:var(--org);font-family:'Barlow Condensed',sans-serif;font-size:30px;font-weight:900">${all.filter(d=>d.udn==='CERVEZAS CMQ').length}</div></div>
+    <div class="kpi" style="border-color:#1abc9c33"><div class="kpi-lbl" style="color:var(--eme)">🥤 UNG</div><div class="kpi-val" style="color:var(--eme);font-family:'Barlow Condensed',sans-serif;font-size:30px;font-weight:900">${all.filter(d=>d.udn==='UNG').length}</div></div>
+    <div class="kpi" style="border-color:#c0392b33"><div class="kpi-lbl" style="color:var(--red)">🐂 Red Bull</div><div class="kpi-val" style="color:var(--red);font-family:'Barlow Condensed',sans-serif;font-size:30px;font-weight:900">${all.filter(d=>d.udn==='UNG (Red Bull)').length}</div></div>`;
   const rows=filterVC();$('vc-count').textContent=`${rows.length} EDF`;
   $('vc-body').innerHTML=rows.map(d=>`<tr>
-    <td><div style="font-weight:600">${d.pdv}</div></td>
-    <td style="color:var(--mut)">${d.cod}</td>
+    <td style="font-weight:600">${d.pdv}</td><td style="color:var(--mut)">${d.cod}</td>
     <td style="font-size:9px;color:var(--mut)">${d.loc}</td>
     <td style="font-size:9px;color:var(--mut)">${d.ruta||''}</td>
-    <td style="font-size:9px">${d.sup}</td>
-    <td style="font-size:9px">${d.pro}</td>
-    <td>${udnBadge(d.udn)}</td>
-    <td><span class="badge b-org">${d.mod}</span></td>
+    <td style="font-size:9px">${d.sup}</td><td style="font-size:9px">${d.pro}</td>
+    <td>${udnB(d.udn)}</td><td><span class="badge b-org">${d.mod}</span></td>
     <td style="font-size:8px;color:var(--mut)">${d.ser}</td>
     <td style="text-align:right">${fHl(d.meta)}</td>
-    <td>${recBadge(d.rec)}</td>
-  </tr>`).join('');
+    <td>${tempB(d)}</td><td>${recB(d.rec)}</td></tr>`).join('');
 }
 
-// ── REPAGO ANUAL ─────────────────────────────────────────
+// RESUMEN CLIENTE
+function filterRC(){
+  let r=DATA_RESUMEN;
+  const s=fv('rc-sup'),p=fv('rc-pro'),rc=fv('rc-rec'),q=fv('rc-q').toLowerCase();
+  if(s)r=r.filter(d=>d.sup===s);if(p)r=r.filter(d=>d.pro===p);if(rc)r=r.filter(d=>d.rec===rc);
+  r=applyRT(r,'rc-rt');
+  if(q)r=r.filter(d=>d.pdv.toLowerCase().includes(q)||(d.cod+'').includes(q));
+  return doSort(r);
+}
+function renderResumenCli(){
+  const rows=filterRC();$('rc-count').textContent=`${rows.length} clientes`;
+  const fh=v=>`<td style="text-align:right;font-size:10px">${(+v||0).toFixed(2)}</td>`;
+  const fn=v=>`<td style="text-align:center;font-size:10px;font-weight:700">${+v||0}</td>`;
+  $('rc-body').innerHTML=rows.map(d=>`<tr>
+    <td style="font-weight:600;font-size:11px">${d.pdv}</td>
+    <td style="color:var(--mut);font-size:10px">${d.cod}</td>
+    <td style="font-size:9px;color:var(--mut)">${d.loc}</td>
+    <td style="font-size:9px;color:var(--mut)">${d.ruta||''}</td>
+    <td style="font-size:9px">${d.sup}</td><td style="font-size:9px">${d.pro}</td>
+    ${fn(d.n_cvza||0)}<td style="text-align:right;font-size:10px;color:var(--yel)">${(d.meta_cvza||0).toFixed(2)}</td>
+    ${fh(d.vta_mes_cvza)}${fh(d.vta_3m_cvza)}${fh(d.vta_6m_cvza)}${fh(d.vta_12m_cvza)}
+    ${fn(d.n_ung||0)}<td style="text-align:right;font-size:10px;color:var(--yel)">${(d.meta_ung_gen||0).toFixed(2)}</td>
+    ${fh(d.vta_mes_ung)}${fh(d.vta_3m_ung)}${fh(d.vta_6m_ung)}${fh(d.vta_12m_ung)}
+    ${fn(d.n_rb||0)}<td style="text-align:right;font-size:10px;color:var(--yel)">${(d.meta_rb||0).toFixed(2)}</td>
+    ${fh(d.vta_mes_rb)}${fh(d.vta_12m_rb)}
+    ${fn(d.n_agua||0)}<td style="text-align:right;font-size:10px;color:var(--yel)">${(d.meta_agua||0).toFixed(2)}</td>
+    ${fh(d.vta_mes_agua)}${fh(d.vta_12m_agua)}
+    <td style="text-align:center;font-weight:700;font-size:10px;color:${(d.ok_mes_total||0)>0?'var(--eme)':'var(--red)'}">${d.ok_mes_total||0}/${d.n_total||0}</td>
+    <td style="text-align:center;font-weight:700;font-size:10px;color:${(d.ok_12m_total||0)>0?'var(--eme)':'var(--red)'}">${d.ok_12m_total||0}/${d.n_total||0}</td>
+    <td>${recB(d.rec)}</td><td>${tempB(d)}</td></tr>`).join('');
+}
+
+// PI
+function filterPI(){
+  let r=DATA_PI;
+  const s=fv('pi-sup'),p=fv('pi-pro'),u=fv('pi-udn'),vi=fv('pi-viab'),es=fv('pi-estado'),q=fv('pi-q').toLowerCase();
+  if(s)r=r.filter(d=>d.sup===s);if(p)r=r.filter(d=>d.pro===p);if(u)r=r.filter(d=>d.udn===u);
+  if(vi)r=r.filter(d=>d.viab.includes(vi));if(es)r=r.filter(d=>d.estado_pi===es);
+  if(q)r=r.filter(d=>d.pdv.toLowerCase().includes(q)||(d.cod+'').includes(q));
+  return doSort(r);
+}
+function renderPI(){
+  const all=DATA_PI;
+  $('pi-kpis').innerHTML=`
+    <div class="kpi k-rep"><div class="kpi-lbl">✅ Viables (3M)</div><div class="kpi-val">${all.filter(d=>d.ok_3m).length}</div><div class="kpi-sub">listos para colocar</div></div>
+    <div class="kpi k-pct"><div class="kpi-lbl">🟡 Promisorios</div><div class="kpi-val">${all.filter(d=>!d.ok_3m&&d.ok_mes).length}</div></div>
+    <div class="kpi k-vc"><div class="kpi-lbl">⚠️ En desarrollo</div><div class="kpi-val">${all.filter(d=>!d.ok_3m&&!d.ok_mes&&d.pct_3m>=50).length}</div></div>
+    <div class="kpi k-nrep"><div class="kpi-lbl">⛔ Sin venta</div><div class="kpi-val">${all.filter(d=>!d.ok_3m&&!d.ok_mes&&d.pct_3m<50).length}</div></div>`;
+  const rows=filterPI();$('pi-count').textContent=`${rows.length} PI`;
+  $('pi-body').innerHTML=rows.map(d=>{
+    const col=d.ok_3m?'var(--eme)':d.ok_mes?'var(--yel)':d.pct_3m>=50?'var(--org)':'var(--red)';
+    const ub=d.udn==='CERVEZAS CMQ'?'<span class="badge b-org">🍺 CVZA</span>':d.es_rb?'<span class="badge b-rb">🐂 RB</span>':'<span class="badge b-eme">🥤 UNG</span>';
+    const eb=d.estado_pi==='PENDIENTE'?'<span class="badge b-yel">🕐 Pendiente</span>':`<span class="badge b-eme">✅ ${d.estado_pi}</span>`;
+    return`<tr><td style="font-weight:600">${d.pdv}</td><td style="color:var(--mut)">${d.cod}</td>
+      <td style="font-size:9px;color:var(--mut)">${d.loc}</td><td style="font-size:9px;color:var(--mut)">${d.ruta}</td>
+      <td style="font-size:9px">${d.sup}</td><td style="font-size:9px">${d.pro}</td>
+      <td>${ub}</td><td style="font-size:9px">${d.logo}</td><td><span class="badge b-org">${d.mod}</span></td>
+      <td style="text-align:right;font-size:10px">${d.lts_repago}</td>
+      <td style="text-align:right;color:var(--yel);font-weight:700;font-size:10px">${d.meta_galaxia}</td>
+      <td>${eb}</td>
+      <td style="text-align:right;font-size:10px">${d.vta_mes.toFixed(3)}</td>
+      <td>${pbar(d.pct_mes,d.ok_mes?'var(--eme)':sc(d.pct_mes))}</td>
+      <td style="text-align:right;font-size:10px">${d.vta_3m.toFixed(3)}</td>
+      <td>${pbar(d.pct_3m,d.ok_3m?'var(--eme)':sc(d.pct_3m))}</td>
+      <td style="font-size:9px;color:var(--mut)">${d.canal}</td>
+      <td style="font-size:10px;font-weight:700;color:${col}">${d.viab}</td></tr>`;
+  }).join('');
+}
+
+// STOCK
+function renderStock(){
+  const det=DATA_STOCK.detalle||[];const res=DATA_STOCK.resumen||[];
+  $('stk-kpis').innerHTML=`
+    <div class="kpi k-tot"><div class="kpi-lbl">Total en Stock</div><div class="kpi-val">${det.length}</div><div class="kpi-sub">equipos en depósito</div></div>
+    <div class="kpi k-pct"><div class="kpi-lbl">🍺 Cervezas</div><div class="kpi-val" style="color:var(--org)">${det.filter(d=>d.udn==='CERVEZAS CMQ').length}</div></div>
+    <div class="kpi k-rep"><div class="kpi-lbl">🥤 UNG</div><div class="kpi-val" style="color:var(--eme)">${det.filter(d=>d.udn==='UNG').length}</div></div>
+    <div class="kpi k-vc"><div class="kpi-lbl">🐂 Red Bull</div><div class="kpi-val" style="color:var(--red)">${det.filter(d=>d.es_rb).length}</div></div>`;
+  const UC2={'CERVEZAS CMQ':'b-org','UNG':'b-eme','AGUAS ECO':'b-agua'};
+  $('stk-res-body').innerHTML=res.map(r=>{
+    const col=r.pct_stock>10?'var(--red)':r.pct_stock>5?'var(--yel)':'var(--eme)';
+    return`<tr><td><span class="badge ${UC2[r.udn]||'b-blu'}">${r.udn==='CERVEZAS CMQ'?'🍺 CVZA':r.udn==='UNG'?'🥤 UNG':'💧 Aguas'}</span></td>
+      <td><span class="badge b-org">${r.mod}</span></td>
+      <td style="text-align:center;font-weight:700">${r.n_inst}</td>
+      <td style="text-align:center;font-weight:700;color:var(--blu)">${r.n_stock}</td>
+      <td style="text-align:center;font-weight:700;color:${col}">${r.pct_stock}%</td></tr>`;
+  }).join('');
+  $('stk-det-body').innerHTML=det.map(d=>`<tr>
+    <td style="font-size:9px;color:var(--mut)">${d.ser}</td>
+    <td>${udnB(d.udn)}</td><td><span class="badge b-org">${d.mod}</span></td>
+    <td style="font-size:10px">${d.desc}</td></tr>`).join('');
+}
+
+// REPAGO ANUAL
 function filterAnual(){
   let r=DATA_EDF.filter(d=>d.meta>0);
-  const s=$('a-sup').value,p=$('a-pro').value,u=$('a-udn').value;
-  const fil=$('a-fil').value,q=$('a-q').value.toLowerCase();
+  const s=fv('a-sup'),p=fv('a-pro'),u=fv('a-udn'),fi=fv('a-fil'),q=fv('a-q').toLowerCase();
   if(s)r=r.filter(d=>d.sup===s);if(p)r=r.filter(d=>d.pro===p);if(u)r=r.filter(d=>d.udn===u);
-  if(fil==='mejora') r=r.filter(d=>!d.ok_mes&&(d.ok_12m||0));
-  else if(fil==='siempre') r=r.filter(d=>d.ok_mes&&(d.ok_12m||0));
-  else if(fil==='nunca') r=r.filter(d=>!d.ok_mes&&!(d.ok_12m||0));
+  if(fi==='mejora')r=r.filter(d=>!d.ok_mes&&(d.ok_12m||0));
+  else if(fi==='siempre')r=r.filter(d=>d.ok_mes&&(d.ok_12m||0));
+  else if(fi==='nunca')r=r.filter(d=>!d.ok_mes&&!(d.ok_12m||0));
+  r=applyRT(r,'a-rt');
   if(q)r=r.filter(d=>d.pdv.toLowerCase().includes(q)||(d.cod+'').includes(q));
-  return r;
+  return doSort(r);
 }
 function renderAnual(){
   const tot=DATA_EDF.filter(d=>d.meta>0).length;
   const ok12=DATA_EDF.filter(d=>(d.ok_12m||0)===1).length;
-  const ok_mes=DATA_EDF.filter(d=>d.ok_mes===1).length;
-  const mejoran=DATA_EDF.filter(d=>!d.ok_mes&&(d.ok_12m||0)).length;
-  const nunca=DATA_EDF.filter(d=>d.meta>0&&!d.ok_mes&&!(d.ok_12m||0)).length;
+  const okm=DATA_EDF.filter(d=>d.ok_mes===1).length;
+  const mej=DATA_EDF.filter(d=>d.meta>0&&!d.ok_mes&&(d.ok_12m||0)).length;
+  const nun=DATA_EDF.filter(d=>d.meta>0&&!d.ok_mes&&!(d.ok_12m||0)).length;
   $('anual-kpis').innerHTML=`
-    <div class="kpi k-anual"><div class="kpi-lbl">OK Anual ≥75%</div><div class="kpi-val">${ok12}</div><div class="kpi-sub">de ${tot} EDF con meta</div></div>
-    <div class="kpi k-anual"><div class="kpi-lbl">% Cumpl. Anual</div><div class="kpi-val">${tot>0?(ok12/tot*100).toFixed(1):0}%</div><div class="kpi-sub">vs ${(ok_mes/tot*100).toFixed(1)}% en el mes</div></div>
-    <div class="kpi k-rep"><div class="kpi-lbl">Mejoran en Anual</div><div class="kpi-val">${mejoran}</div><div class="kpi-sub">no OK mes, sí OK 12M</div></div>
-    <div class="kpi k-nrep"><div class="kpi-lbl">Nunca OK</div><div class="kpi-val">${nunca}</div><div class="kpi-sub">ni mes ni anual</div></div>
-    <div class="kpi k-vc"><div class="kpi-lbl">VC 12 Meses</div><div class="kpi-val">${DATA_EDF.filter(d=>d.vc12).length}</div><div class="kpi-sub">sin compra anual</div></div>
-  `;
-  // Semáforo anual
-  const sc12={};SEM_ORDER.forEach(s=>sc12[s]=DATA_EDF.filter(d=>d.meta>0&&(d.pct_12m||0)>=(s==='>=75%'?75:s==='50-75%'?50:s==='25-50%'?25:s==='0-25%'?0.01:0)&&(d.pct_12m||0)<(s==='>=75%'?Infinity:s==='50-75%'?75:s==='25-50%'?50:s==='0-25%'?25:0.01)).length);
-  // Simplificado:
-  ['0%','0-25%','25-50%','50-75%','>=75%'].forEach(s=>{
+    <div class="kpi k-anual"><div class="kpi-lbl">OK Anual ≥75%</div><div class="kpi-val">${ok12}</div><div class="kpi-sub">de ${tot} EDF</div></div>
+    <div class="kpi k-anual"><div class="kpi-lbl">% Cumpl. Anual</div><div class="kpi-val">${tot>0?(ok12/tot*100).toFixed(1):0}%</div><div class="kpi-sub">vs ${tot>0?(okm/tot*100).toFixed(1):0}% en el mes</div></div>
+    <div class="kpi k-rep"><div class="kpi-lbl">Mejoran en Anual</div><div class="kpi-val">${mej}</div><div class="kpi-sub">no OK mes → OK 12M</div></div>
+    <div class="kpi k-nrep"><div class="kpi-lbl">Nunca OK</div><div class="kpi-val">${nun}</div></div>
+    <div class="kpi k-vc"><div class="kpi-lbl">VC 12 Meses</div><div class="kpi-val">${DATA_EDF.filter(d=>d.vc12===1).length}</div></div>`;
+  const sc12={};['0%','0-25%','25-50%','50-75%','>=75%'].forEach(s=>{
     sc12[s]=DATA_EDF.filter(d=>{const p=d.pct_12m||0;if(s==='0%')return p<=0;if(s==='0-25%')return p>0&&p<25;if(s==='25-50%')return p>=25&&p<50;if(s==='50-75%')return p>=50&&p<75;return p>=75;}).length;
   });
-  $('anual-sem-bar').innerHTML=SEM_ORDER.map((s,i)=>{const w=tot>0?(sc12[s]/tot*100).toFixed(1):0;return`<div class="seg s${i}" style="width:${w}%" title="${SEM_LABELS[s]}: ${sc12[s]}">${sc12[s]}</div>`;}).join('');
-  $('anual-sem-leg').innerHTML=SEM_ORDER.map(s=>`<div class="leg-item"><div class="leg-dot" style="background:${SEM_COLORS[s]}"></div>${SEM_LABELS[s]} (${sc12[s]})</div>`).join('');
-  // Por UdN anual
+  $('anual-sem-bar').innerHTML=SL.map((s,i)=>{const w=tot>0?(sc12[s]/tot*100).toFixed(1):0;return`<div class="seg s${i}" style="width:${w}%" title="${SN[s]}: ${sc12[s]}">${sc12[s]}</div>`;}).join('');
+  $('anual-sem-leg').innerHTML=SL.map(s=>`<div class="leg-item"><div class="leg-dot" style="background:${SC[s]}"></div>${SN[s]} (${sc12[s]})</div>`).join('');
   $('anual-udn-rows').innerHTML=['CERVEZAS CMQ','UNG','UNG (Red Bull)','AGUAS ECO'].map(u=>{
     const g=DATA_EDF.filter(d=>d.udn===u&&d.meta>0);
-    const r=g.filter(d=>(d.ok_12m||0)===1).length;
-    const pp=g.length>0?(r/g.length*100).toFixed(0):0;
-    const col=sc(pp);
-    const rm=g.filter(d=>d.ok_mes===1).length;
-    const pm=g.length>0?(rm/g.length*100).toFixed(0):0;
-    return`<div class="prom-row">
-      <div class="prom-name">${UDN_ICON[u]||''} ${u}</div>
-      <div class="prom-n">${g.length} EDF</div>
-      <div style="font-size:9px;color:var(--mut);margin-left:4px">mes: <span style="color:${sc(pm)};font-weight:700">${pm}%</span></div>
-      <div style="flex:1;margin:0 8px;background:var(--sur2);border-radius:2px;height:4px;overflow:hidden"><div style="width:${pp}%;height:100%;background:${col};border-radius:2px"></div></div>
-      <div style="font-size:11px;font-weight:700;color:${col};width:42px;text-align:right">12M: ${pp}%</div>
-    </div>`;
+    const r=g.filter(d=>(d.ok_12m||0)===1).length;const rm=g.filter(d=>d.ok_mes===1).length;
+    const pp=g.length>0?(r/g.length*100).toFixed(0):0;const pm=g.length>0?(rm/g.length*100).toFixed(0):0;const col=sc(pp);
+    return`<div class="prom-row">${udnB(u)}<span style="font-size:9px;color:var(--mut);margin-left:4px">${g.length} EDF</span><span style="font-size:9px;color:var(--mut);margin-left:6px">mes:<span style="color:${sc(pm)};font-weight:700">${pm}%</span></span><div style="flex:1;margin:0 8px;background:var(--sur2);border-radius:2px;height:4px;overflow:hidden"><div style="width:${pp}%;height:100%;background:${col}"></div></div><span style="font-size:11px;font-weight:700;color:${col};width:50px;text-align:right">12M: ${pp}%</span></div>`;
   }).join('');
-  // Diff mes vs anual
   $('anual-diff').innerHTML=`
-    <div style="padding:8px 0;border-bottom:1px solid var(--bdr)">
-      <div style="font-size:10px;color:var(--mut);margin-bottom:6px">EDF que <strong style="color:var(--eme)">mejoran</strong> al ver el anual</div>
-      <div style="font-size:28px;font-weight:900;font-family:'Barlow Condensed',sans-serif;color:var(--eme)">${mejoran} <span style="font-size:13px;color:var(--mut)">EDF</span></div>
-      <div style="font-size:10px;color:var(--mut)">No OK en mes → OK en 12 meses</div>
-    </div>
-    <div style="padding:8px 0;border-bottom:1px solid var(--bdr)">
-      <div style="font-size:10px;color:var(--mut);margin-bottom:6px">EDF <strong style="color:var(--red)">nunca</strong> repagan</div>
-      <div style="font-size:28px;font-weight:900;font-family:'Barlow Condensed',sans-serif;color:var(--red)">${nunca} <span style="font-size:13px;color:var(--mut)">EDF</span></div>
-      <div style="font-size:10px;color:var(--mut)">Ni en mes ni en 12 meses → candidatos a retiro</div>
-    </div>
-    <div style="padding:8px 0">
-      <div style="font-size:10px;color:var(--mut);margin-bottom:6px">Ganancia del análisis anual</div>
-      <div style="font-size:28px;font-weight:900;font-family:'Barlow Condensed',sans-serif;color:var(--vio)">${tot>0?((ok12-ok_mes)/tot*100).toFixed(1):0}% <span style="font-size:13px;color:var(--mut)">más OK</span></div>
-      <div style="font-size:10px;color:var(--mut)">${ok_mes} OK mes → ${ok12} OK anual</div>
-    </div>`;
+    <div style="padding:8px 0;border-bottom:1px solid var(--bdr)"><div style="font-size:10px;color:var(--mut);margin-bottom:5px">EDF que <strong style="color:var(--eme)">mejoran</strong> al ver el anual</div><div style="font-size:28px;font-weight:900;font-family:'Barlow Condensed',sans-serif;color:var(--eme)">${mej} <span style="font-size:12px;color:var(--mut)">EDF</span></div><div style="font-size:10px;color:var(--mut)">No OK mes → OK 12M</div></div>
+    <div style="padding:8px 0;border-bottom:1px solid var(--bdr)"><div style="font-size:10px;color:var(--mut);margin-bottom:5px">EDF <strong style="color:var(--red)">nunca</strong> repagan</div><div style="font-size:28px;font-weight:900;font-family:'Barlow Condensed',sans-serif;color:var(--red)">${nun} <span style="font-size:12px;color:var(--mut)">EDF</span></div></div>
+    <div style="padding:8px 0"><div style="font-size:10px;color:var(--mut);margin-bottom:5px">Ganancia del análisis anual</div><div style="font-size:28px;font-weight:900;font-family:'Barlow Condensed',sans-serif;color:var(--vio)">${tot>0?((ok12-okm)/tot*100).toFixed(1):0}% <span style="font-size:12px;color:var(--mut)">más OK</span></div><div style="font-size:10px;color:var(--mut)">${okm} OK mes → ${ok12} OK anual</div></div>`;
   const rows=filterAnual();$('a-count').textContent=`${rows.length} EDF`;
-  $('a-body').innerHTML=rows.sort((a,b)=>(b.pct_12m||0)-(a.pct_12m||0)).map(d=>{
-    const meta12=d.meta*12;
-    const dif=d.ok_12m&&!d.ok_mes?'📈 Mejora anual':(!d.ok_12m&&d.ok_mes?'📉 Baja en anual':(!d.ok_12m&&!d.ok_mes?'⛔ Nunca OK':'✅ Siempre OK'));
-    return`<tr>
-      <td><div style="font-weight:600">${d.pdv}</div></td>
-      <td style="color:var(--mut)">${d.cod}</td>
-      <td style="font-size:9px;color:var(--mut)">${d.loc}</td>
-      <td style="font-size:9px">${d.pro}</td>
-      <td>${udnBadge(d.udn)}</td>
-      <td><span class="badge b-org">${d.mod}</span></td>
-      <td style="text-align:right">${fHl(d.meta)}</td>
-      <td style="text-align:right;font-weight:700">${fHl(meta12)}</td>
-      <td style="text-align:right">${fHl(d.a_12m||0)}</td>
-      <td>${pbar(d.pct_12m||0,sc(d.pct_12m||0))}</td>
-      <td style="text-align:center;font-size:13px">${(d.ok_12m||0)?'✅':'⛔'}</td>
-      <td>${pbar(d.pct_mes,SEM_COLORS[d.sem])}</td>
-      <td style="text-align:center;font-size:13px">${d.ok_mes?'✅':'⛔'}</td>
-      <td style="font-size:10px">${dif}</td>
-    </tr>`;
+  $('a-body').innerHTML=rows.map(d=>{
+    const ma=d.meta*12;
+    const dif=(d.ok_12m||0)&&!d.ok_mes?'📈 Mejora':(!d.ok_12m&&!d.ok_mes?'⛔ Nunca OK':'✅ Siempre OK');
+    return`<tr><td style="font-weight:600">${d.pdv}</td><td style="color:var(--mut)">${d.cod}</td>
+      <td style="font-size:9px;color:var(--mut)">${d.loc}</td><td style="font-size:9px">${d.pro}</td>
+      <td>${udnB(d.udn)}</td><td><span class="badge b-org">${d.mod}</span></td><td>${tempB(d)}</td>
+      <td style="text-align:right">${fHl(d.meta)}</td><td style="text-align:right;font-weight:700">${fHl(ma)}</td>
+      <td style="text-align:right;font-weight:700;color:var(--eme)">${fHl(d.venta_real_12m||0)}</td>
+      <td>${pbar(d.pct_12m||0,sc(d.pct_12m||0))}</td><td style="text-align:center">${(d.ok_12m||0)?'✅':'⛔'}</td>
+      <td>${pbar(d.pct_mes,SC[d.sem])}</td><td style="text-align:center">${d.ok_mes?'✅':'⛔'}</td>
+      <td style="font-size:10px">${dif}</td></tr>`;
   }).join('');
 }
 
-// ── MODAL ────────────────────────────────────────────────
-let mSup='',mPro='',mNivel='cli',mUdn='';
-function setNivel(n,el){mNivel=n;document.querySelectorAll('.nivel-tab').forEach(t=>t.classList.remove('active'));el.classList.add('active');renderModal();}
+// MODAL
+let mSup='',mPro='',mUdn='',mNivel='cli';
+function setNivel(n,el){mNivel=n;document.querySelectorAll('.nlev-tab').forEach(t=>t.classList.remove('active'));el.classList.add('active');renderModal();}
 function abrirModal(sem,sup,pro,udn){
   mSup=sup||'';mPro=pro||'';mUdn=udn||'';
-  const titles={'todos':'Todos los EDF','>=75%':'EDF que repagan ≥75%','nrep':'EDF que NO repagan','0%':'Sin venta','0-25%':'0–25%','25-50%':'25–50%','50-75%':'50–75%'};
-  $('m-title').textContent=sup?`Supervisor: ${sup}`:(pro?`Promotor: ${pro}`:(udn?`UdN: ${udn}`:titles[sem]||'Detalle EDF'));
-  $('m-sub').textContent=`${DATA_EDF.length} EDF totales`;
-  $('m-sem').value=sem&&sem!=='todos'&&sem!=='nrep'?sem:'';
-  $('m-udn').value=udn||'';$('m-q').value='';
+  const t={'todos':'Todos los EDF','>=75%':'Repagan ≥75%','nrep':'No repagan'};
+  $('m-title').textContent=sup?`Supervisor: ${sup}`:(pro?`Promotor: ${pro}`:(udn?`UdN: ${udn}`:t[sem]||'Detalle'));
+  $('m-udn').value=udn||'';$('m-sem').value=sem&&sem!=='todos'&&sem!=='nrep'?sem:'';$('m-q').value='';
   $('modal-ov').style.display='block';document.body.style.overflow='hidden';
   renderModal(sem);
 }
@@ -1032,18 +857,16 @@ function renderModal(initSem){
     else if(sem)rows=rows.filter(d=>d.sem===sem);
     if(q)rows=rows.filter(d=>d.pdv.toLowerCase().includes(q)||(d.cod+'').includes(q));
     $('m-count').textContent=`${rows.length} clientes`;
-    $('m-wrap').innerHTML=`<table><thead><tr><th>PDV</th><th>Cód.</th><th>Loc.</th><th>Prom.</th><th>UdN</th><th>EDF</th><th>OK</th><th>Meta Hl</th><th>Venta Mes</th><th>% Mes</th><th>% 3M</th><th>% 12M</th><th>Rec.</th></tr></thead>
+    $('m-wrap').innerHTML=`<table><thead><tr><th>PDV</th><th>Cód.</th><th>Loc.</th><th>Prom.</th><th>UdN</th><th>EDF</th><th>OK</th><th>Meta Hl</th><th>Venta Mes</th><th>% Mes</th><th>% 3M</th><th>% 12M</th><th>Rec.</th><th>Tipo PDV</th></tr></thead>
     <tbody>${rows.sort((a,b)=>a.pct_mes-b.pct_mes).map(d=>`<tr>
       <td style="font-weight:600">${d.pdv}</td><td style="color:var(--mut)">${d.cod}</td>
       <td style="font-size:9px;color:var(--mut)">${d.loc}</td><td style="font-size:9px">${d.pro}</td>
-      <td>${udnBadge(d.udn)}</td>
-      <td style="text-align:center;font-weight:700">${d.n_edf}</td>
+      <td>${udnB(d.udn)}</td><td style="text-align:center;font-weight:700">${d.n_edf}</td>
       <td style="text-align:center;font-weight:700;color:${(d.n_ok_mes||0)>0?'var(--eme)':'var(--red)'}">${d.n_ok_mes||0}/${d.n_edf}</td>
       <td style="text-align:right">${fHl(d.meta)}</td><td style="text-align:right">${fHl(d.hl_mes)}</td>
-      <td>${pbar(d.pct_mes,SEM_COLORS[d.sem])}</td><td>${pbar(d.pct_3m,sc(d.pct_3m))}</td>
-      <td>${pbar(d.pct_12m||0,sc(d.pct_12m||0))}</td><td>${recBadge(d.rec)}</td>
-    </tr>`).join('')}</tbody></table>`;
-  } else {
+      <td>${pbar(d.pct_mes,SC[d.sem])}</td><td>${pbar(d.pct_3m,sc(d.pct_3m))}</td>
+      <td>${pbar(d.pct_12m||0,sc(d.pct_12m||0))}</td><td>${recB(d.rec)}</td><td>${tempB(d)}</td></tr>`).join('')}</tbody></table>`;
+  }else{
     let rows=DATA_EDF;
     if(mSup)rows=rows.filter(d=>d.sup===mSup);if(mPro)rows=rows.filter(d=>d.pro===mPro);
     if(udn)rows=rows.filter(d=>d.udn===udn);
@@ -1052,279 +875,46 @@ function renderModal(initSem){
     else if(sem)rows=rows.filter(d=>d.sem===sem);
     if(q)rows=rows.filter(d=>d.pdv.toLowerCase().includes(q)||(d.cod+'').includes(q));
     $('m-count').textContent=`${rows.length} EDF`;
-    $('m-wrap').innerHTML=`<table><thead><tr><th>PDV</th><th>Cód.</th><th>Prom.</th><th>UdN</th><th>Tipo</th><th>Modelo</th><th>Meta</th><th>Mín.OK</th><th>Asig.</th><th>Falta</th><th>% Mes</th><th>OK?</th><th>% 12M</th><th>OK?</th><th>Rec.</th></tr></thead>
+    $('m-wrap').innerHTML=`<table><thead><tr><th>PDV</th><th>Cód.</th><th>Prom.</th><th>UdN</th><th>Tipo</th><th>Modelo</th><th>Meta</th><th>Mín.OK</th><th>Asig.</th><th>Falta</th><th>% Mes</th><th>OK?</th><th>% 12M</th><th>OK?</th><th>Tipo PDV</th><th>Rec.</th></tr></thead>
     <tbody>${rows.sort((a,b)=>a.pct_mes-b.pct_mes).map(d=>{const cls=d.ok_mes?'edf-row-rep':d.pct_mes>0?'edf-row-par':'edf-row-nrep';return`<tr class="${cls}">
-      <td><div style="font-weight:600">${d.pdv}</div><div style="font-size:8px;color:var(--mut)">${d.loc}</div></td>
-      <td style="color:var(--mut)">${d.cod}</td><td style="font-size:9px">${d.pro}</td>
-      <td>${udnBadge(d.udn)}</td><td>${tipoBadge(d)}</td>
-      <td><span class="badge b-org">${d.mod}</span></td>
+      <td style="font-weight:600">${d.pdv}</td><td style="color:var(--mut)">${d.cod}</td><td style="font-size:9px">${d.pro}</td>
+      <td>${udnB(d.udn)}</td><td>${tipoB(d)}</td><td><span class="badge b-org">${d.mod}</span></td>
       <td style="text-align:right">${fHl(d.meta)}</td>
       <td style="text-align:right;color:var(--yel);font-weight:700">${fHl(d.ok_thr||d.meta*0.75)}</td>
       <td style="text-align:right">${fHl(d.a_mes)}</td>
       <td style="text-align:right;color:${d.dif_mes>=0?'var(--eme)':'var(--red)'};font-weight:700">${d.dif_mes>=0?'+':''}${fHl(d.dif_mes)}</td>
-      <td>${pbar(d.pct_mes,SEM_COLORS[d.sem])}</td>
-      <td style="text-align:center;font-size:12px">${d.ok_mes?'✅':'⛔'}</td>
-      <td>${pbar(d.pct_12m||0,sc(d.pct_12m||0))}</td>
-      <td style="text-align:center;font-size:12px">${(d.ok_12m||0)?'✅':'⛔'}</td>
-      <td>${recBadge(d.rec)}</td>
-    </tr>`;}).join('')}</tbody></table>`;
+      <td>${pbar(d.pct_mes,SC[d.sem])}</td><td style="text-align:center">${d.ok_mes?'✅':'⛔'}</td>
+      <td>${pbar(d.pct_12m||0,sc(d.pct_12m||0))}</td><td style="text-align:center">${(d.ok_12m||0)?'✅':'⛔'}</td>
+      <td>${tempB(d)}</td><td>${recB(d.rec)}</td></tr>`;}).join('')}</tbody></table>`;
   }
 }
 function cerrarModal(){$('modal-ov').style.display='none';document.body.style.overflow='';mSup='';mPro='';mUdn='';}
 
+// EXPORTS
+function toCSV(rows,fields){return fields.join(',')+'
+'+rows.map(r=>fields.map(f=>`"${(r[f]??'').toString().replace(/"/g,'""')}"`) .join(',')).join('
+');}
+function dl(c,n){const b=new Blob(['﻿'+c],{type:'text/csv;charset=utf-8'});const a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=n;a.click();}
+function exportAll(){dl(toCSV(DATA_EDF,['pdv','cod','loc','ruta','sup','pro','udn','mod','ser','meta','a_mes','pct_mes','dif_mes','sem','ok_mes','pct_3m','ok_3m','pct_6m','ok_6m','pct_12m','ok_12m','vc3','vc6','vc12','rec','es_temp','fec']),'EDF_completo.csv');}
+function exportClientes(){dl(toCSV(filterCLI(),['pdv','cod','loc','ruta','sup','pro','udn','n_edf','n_ok_mes','meta','hl_mes','pct_mes','pct_3m','pct_12m','vc3','vc6','vc12','rec','es_temp']),'clientes_EDF.csv');}
+function exportEDF(){dl(toCSV(filterEDF(),['pdv','cod','loc','ruta','sup','pro','udn','mod','ser','meta','a_mes','pct_mes','dif_mes','ok_mes','pct_3m','ok_3m','pct_6m','ok_6m','pct_12m','ok_12m','rec','es_temp','fec']),'detalle_EDF.csv');}
+function exportVC(){dl(toCSV(filterVC(),['pdv','cod','loc','ruta','sup','pro','udn','mod','ser','meta','rec','es_temp']),'venta_cero_'+vcMode+'.csv');}
+function exportResumenCli(){dl(toCSV(filterRC(),['pdv','cod','loc','ruta','sup','pro','n_cvza','meta_cvza','vta_mes_cvza','vta_12m_cvza','n_ung','meta_ung_gen','vta_mes_ung','vta_12m_ung','n_rb','meta_rb','vta_mes_rb','vta_12m_rb','n_agua','meta_agua','vta_mes_agua','vta_12m_agua','ok_mes_total','ok_12m_total','rec','es_temp']),'resumen_clientes.csv');}
+function exportPI(){dl(toCSV(filterPI(),['pdv','cod','loc','ruta','sup','pro','udn','logo','mod','lts_repago','meta_galaxia','estado_pi','vta_mes','pct_mes','vta_3m','pct_3m','ok_3m','viab','canal']),'PI_colocacion.csv');}
+function exportAnual(){dl(toCSV(filterAnual(),['pdv','cod','loc','ruta','sup','pro','udn','mod','meta','venta_real_12m','pct_12m','ok_12m','pct_mes','ok_mes','rec','es_temp']),'repago_anual.csv');}
 
-// ── RESUMEN POR CLIENTE ───────────────────────────────────
-function initResumenSelects(){
-  const sups=[...new Set(DATA_RESUMEN.map(d=>d.sup))].filter(Boolean).sort();
-  const pros=[...new Set(DATA_RESUMEN.map(d=>d.pro))].filter(Boolean).sort();
-  sups.forEach(s=>{const o=document.createElement('option');o.value=s;o.textContent=s;$('rc-sup').appendChild(o);});
-  pros.forEach(p=>{const o=document.createElement('option');o.value=p;o.textContent=p;$('rc-pro').appendChild(o);});
-}
-function filterRC(){
-  let r=DATA_RESUMEN;
-  const s=$('rc-sup').value,p=$('rc-pro').value,rec=$('rc-rec').value;
-  const udn=$('rc-udn').value,q=$('rc-q').value.toLowerCase();
-  if(s)r=r.filter(d=>d.sup===s);
-  if(p)r=r.filter(d=>d.pro===p);
-  if(rec)r=r.filter(d=>d.rec===rec);
-  if(udn==='cvza') r=r.filter(d=>d.n_cvza>0);
-  else if(udn==='ung') r=r.filter(d=>d.n_ung>0);
-  else if(udn==='rb')  r=r.filter(d=>d.n_rb>0);
-  else if(udn==='agua') r=r.filter(d=>d.n_agua>0);
-  r=applyRutaFilter(r,'rc');
-  if(q)r=r.filter(d=>d.pdv.toLowerCase().includes(q)||(d.cod+'').includes(q));
-  return applSort(r);
-}
-function renderResumenCli(){
-  const rows=filterRC();
-  $('rc-count').textContent=`${rows.length} clientes`;
-  const fh=v=>`<td style="text-align:right;font-size:10px">${(v||0).toFixed(3)}</td>`;
-  const fn=v=>`<td style="text-align:center;font-size:10px;font-weight:700">${v||0}</td>`;
-  $('rc-body').innerHTML=rows.map(d=>{
-    const ok_m=d.ok_mes_total||0;
-    const ok12=d.ok_12m_total||0;
-    const tot=d.n_total||0;
-    return`<tr>
-      <td><div style="font-weight:600;font-size:11px">${d.pdv}</div></td>
-      <td style="color:var(--mut);font-size:10px">${d.cod}</td>
-      <td style="font-size:9px;color:var(--mut)">${d.loc}</td>
-      <td style="font-size:9px;color:var(--mut)">${d.ruta||''}</td>
-      <td style="font-size:9px">${d.sup}</td>
-      <td style="font-size:9px">${d.pro}</td>
-      <!-- CVZA -->
-      ${fn(d.n_cvza)}
-      <td style="text-align:right;font-size:10px;color:var(--yel)">${(d.meta_cvza||0).toFixed(2)}</td>
-      ${fh(d.vta_mes_cvza)}${fh(d.vta_3m_cvza)}${fh(d.vta_6m_cvza)}${fh(d.vta_12m_cvza)}
-      <!-- UNG -->
-      ${fn(d.n_ung)}
-      <td style="text-align:right;font-size:10px;color:var(--yel)">${(d.meta_ung_gen||0).toFixed(2)}</td>
-      ${fh(d.vta_mes_ung)}${fh(d.vta_3m_ung)}${fh(d.vta_6m_ung)}${fh(d.vta_12m_ung)}
-      <!-- RB -->
-      ${fn(d.n_rb)}
-      <td style="text-align:right;font-size:10px;color:var(--yel)">${(d.meta_rb||0).toFixed(2)}</td>
-      ${fh(d.vta_mes_rb)}${fh(d.vta_12m_rb)}
-      <!-- AGUAS -->
-      ${fn(d.n_agua)}
-      <td style="text-align:right;font-size:10px;color:var(--yel)">${(d.meta_agua||0).toFixed(2)}</td>
-      ${fh(d.vta_mes_agua)}${fh(d.vta_12m_agua)}
-      <!-- OK -->
-      <td style="text-align:center;font-weight:700;font-size:10px;color:${ok_m>0?'var(--eme)':'var(--red)'}">
-        ${ok_m}/${tot}
-      </td>
-      <td style="text-align:center;font-weight:700;font-size:10px;color:${ok12>0?'var(--eme)':'var(--red)'}">
-        ${ok12}/${tot}
-      </td>
-      <td>${recBadge(d.rec)}</td>
-    </tr>`;
-  }).join('');
-}
-function exportResumenCli(){
-  const rows=filterRC();
-  const fields=['pdv','cod','loc','ruta','sup','pro',
-    'n_cvza','meta_cvza','vta_mes_cvza','vta_3m_cvza','vta_6m_cvza','vta_12m_cvza',
-    'n_ung','meta_ung_gen','vta_mes_ung','vta_3m_ung','vta_6m_ung','vta_12m_ung',
-    'n_rb','meta_rb','vta_mes_rb','vta_12m_rb',
-    'n_agua','meta_agua','vta_mes_agua','vta_12m_agua',
-    'ok_mes_total','ok_12m_total','n_total','rec'];
-  dl(toCSV(rows,fields),'resumen_clientes.csv');
-}
-
-
-function initPISelects(){
-  const sups=[...new Set(DATA_PI.map(d=>d.sup))].filter(Boolean).sort();
-  const pros=[...new Set(DATA_PI.map(d=>d.pro))].filter(Boolean).sort();
-  sups.forEach(s=>{const o=document.createElement('option');o.value=s;o.textContent=s;$('pi-sup').appendChild(o);});
-  pros.forEach(p=>{const o=document.createElement('option');o.value=p;o.textContent=p;$('pi-pro').appendChild(o);});
-}
-function filterPI(){
-  let r=DATA_PI;
-  const s=$('pi-sup').value,p=$('pi-pro').value,u=$('pi-udn').value;
-  const viab=$('pi-viab').value,est=$('pi-estado').value,q=$('pi-q').value.toLowerCase();
-  if(s)r=r.filter(d=>d.sup===s); if(p)r=r.filter(d=>d.pro===p);
-  if(u)r=r.filter(d=>d.udn===u); if(viab)r=r.filter(d=>d.viab.includes(viab));
-  if(est)r=r.filter(d=>d.estado_pi===est);
-  if(q)r=r.filter(d=>d.pdv.toLowerCase().includes(q)||(d.cod+'').includes(q));
-  return r;
-}
-function renderPI(){
-  const all=DATA_PI;
-  const viable=all.filter(d=>d.ok_3m).length;
-  const promi=all.filter(d=>!d.ok_3m&&d.ok_mes).length;
-  const endes=all.filter(d=>!d.ok_3m&&!d.ok_mes&&d.pct_3m>=50).length;
-  const sinvta=all.filter(d=>!d.ok_3m&&!d.ok_mes&&d.pct_3m<50).length;
-  $('pi-kpis').innerHTML=`
-    <div class="kpi k-rep"><div class="kpi-lbl">✅ Viables (repagan 3M)</div><div class="kpi-val">${viable}</div><div class="kpi-sub">listos para colocar</div></div>
-    <div class="kpi k-pct"><div class="kpi-lbl">🟡 Promisorios</div><div class="kpi-val">${promi}</div><div class="kpi-sub">repagan mes actual</div></div>
-    <div class="kpi k-vc"><div class="kpi-lbl">⚠️ En desarrollo</div><div class="kpi-val">${endes}</div><div class="kpi-sub">prom 3M ≥50% meta</div></div>
-    <div class="kpi k-nrep"><div class="kpi-lbl">⛔ Sin venta</div><div class="kpi-val">${sinvta}</div><div class="kpi-sub">prom 3M <50% meta</div></div>
-  `;
-  const rows=filterPI();
-  $('pi-count').textContent=`${rows.length} PI`;
-  $('pi-body').innerHTML=rows.map(d=>{
-    const col=d.ok_3m?'var(--eme)':d.ok_mes?'var(--yel)':d.pct_3m>=50?'var(--org)':'var(--red)';
-    const est_b=d.estado_pi==='PENDIENTE'?'<span class="badge b-yel">🕐 Pendiente</span>':`<span class="badge b-eme">✅ ${d.estado_pi}</span>`;
-    const udn_b=d.udn==='CERVEZAS CMQ'?'<span class="badge b-org">🍺 CVZA</span>':d.es_rb?'<span class="badge b-rb">🐂 RB</span>':'<span class="badge b-eme">🥤 UNG</span>';
-    return`<tr>
-      <td style="font-weight:600">${d.pdv}</td><td style="color:var(--mut)">${d.cod}</td>
-      <td style="font-size:9px;color:var(--mut)">${d.loc}</td>
-      <td style="font-size:9px;color:var(--mut)">${d.ruta}</td>
-      <td style="font-size:9px">${d.sup}</td><td style="font-size:9px">${d.pro}</td>
-      <td>${udn_b}</td><td style="font-size:9px">${d.logo}</td>
-      <td><span class="badge b-org">${d.mod}</span></td>
-      <td style="text-align:right;font-size:10px">${d.lts_repago}</td>
-      <td style="text-align:right;color:var(--yel);font-weight:700;font-size:10px">${d.meta_galaxia}</td>
-      <td>${est_b}</td>
-      <td style="text-align:right;font-size:10px">${d.vta_mes.toFixed(3)}</td>
-      <td>${pbar(d.pct_mes,d.ok_mes?'var(--eme)':sc(d.pct_mes))}</td>
-      <td style="text-align:right;font-size:10px">${d.vta_3m.toFixed(3)}</td>
-      <td>${pbar(d.pct_3m,d.ok_3m?'var(--eme)':sc(d.pct_3m))}</td>
-      <td style="font-size:9px;color:var(--mut)">${d.canal}</td>
-      <td style="font-size:10px;font-weight:700;color:${col}">${d.viab}</td>
-    </tr>`;
-  }).join('');
-}
-function exportPI(){
-  dl(toCSV(filterPI(),['pdv','cod','loc','ruta','sup','pro','udn','logo','mod','lts_repago','meta_galaxia','estado_pi','vta_mes','pct_mes','vta_3m','pct_3m','ok_3m','viab','canal']),'PI_colocacion.csv');
-}
-
-
-// ── STOCK DEPÓSITO ────────────────────────────────────────
-function renderStock(){
-  const det=DATA_STOCK.detalle; const res=DATA_STOCK.resumen;
-  const tot=det.length;
-  const n_cvza=det.filter(d=>d.udn==='CERVEZAS CMQ').length;
-  const n_ung=det.filter(d=>d.udn==='UNG').length;
-  const exceso_tot=res.reduce((s,r)=>s+(r.exceso>0?r.exceso:0),0);
-  const faltante_tot=res.reduce((s,r)=>s+(r.exceso<0?Math.abs(r.exceso):0),0);
-  $('stk-kpis').innerHTML=`
-    <div class="kpi k-tot"><div class="kpi-lbl">Total en Stock</div><div class="kpi-val">${tot}</div><div class="kpi-sub">equipos en depósito</div></div>
-    <div class="kpi k-pct"><div class="kpi-lbl">🍺 Cervezas</div><div class="kpi-val" style="color:var(--org)">${n_cvza}</div><div class="kpi-sub">en stock</div></div>
-    <div class="kpi k-rep"><div class="kpi-lbl">🥤 UNG</div><div class="kpi-val" style="color:var(--eme)">${n_ung}</div><div class="kpi-sub">en stock</div></div>
-    <div class="kpi ${exceso_tot>0?'k-nrep':'k-rep'}"><div class="kpi-lbl">Exceso vs 2% objetivo</div><div class="kpi-val" style="color:${exceso_tot>0?'var(--red)':'var(--eme)'}">${exceso_tot>0?'+'+exceso_tot:faltante_tot>0?'-'+faltante_tot:'OK'}</div><div class="kpi-sub">equipos sobre/bajo objetivo</div></div>
-  `;
-  // Tabla resumen
-  const UDN_COL={'CERVEZAS CMQ':'b-org','UNG':'b-eme','AGUAS ECO':'b-agua'};
-  $('stk-resumen-body').innerHTML=res.map(r=>{
-    const exceso_col=r.exceso>0?'var(--red)':r.exceso<0?'var(--yel)':'var(--eme)';
-    const exceso_txt=r.exceso>0?`+${r.exceso} exceso`:r.exceso<0?`${r.exceso} faltante`:'✅ OK';
-    const estado_badge=r.exceso>2?'<span class="badge b-red">⚠️ Exceso</span>':
-                       r.exceso<0?'<span class="badge b-yel">📉 Bajo objetivo</span>':
-                       '<span class="badge b-eme">✅ OK</span>';
-    const pct_col=r.pct_stock>10?'var(--red)':r.pct_stock>5?'var(--yel)':'var(--eme)';
-    return`<tr>
-      <td><span class="badge ${UDN_COL[r.udn]||'b-blu'}">${r.udn==='CERVEZAS CMQ'?'🍺 CVZA':r.udn==='UNG'?'🥤 UNG':'💧 Aguas'}</span></td>
-      <td><span class="badge b-org">${r.mod}</span></td>
-      <td style="text-align:center;font-weight:700">${r.n_inst}</td>
-      <td style="text-align:center;font-weight:700;color:var(--blu)">${r.n_stock}</td>
-      <td style="text-align:center;font-weight:700;color:${pct_col}">${r.pct_stock}%</td>
-      <td style="text-align:center;color:var(--mut)">${r.n_seg_obj}</td>
-      <td style="text-align:center;font-weight:700;color:${exceso_col}">${exceso_txt}</td>
-      <td>${estado_badge}</td>
-    </tr>`;
-  }).join('');
-  // Barras visuales
-  $('stk-bars').innerHTML=res.map(r=>{
-    const w_inst=r.n_total>0?(r.n_inst/r.n_total*100).toFixed(0):0;
-    const w_stock=r.n_total>0?(r.n_stock/r.n_total*100).toFixed(0):0;
-    const col_stock=r.exceso>2?'var(--red)':r.exceso<0?'var(--yel)':'var(--eme)';
-    return`<div style="margin-bottom:12px">
-      <div style="display:flex;justify-content:space-between;font-size:10px;margin-bottom:4px">
-        <span><span class="badge b-org" style="font-size:8px">${r.mod}</span> <span style="color:var(--mut);font-size:9px">${r.udn==='CERVEZAS CMQ'?'CVZA':'UNG'}</span></span>
-        <span style="color:var(--mut);font-size:9px">${r.n_inst} inst · <span style="color:${col_stock};font-weight:700">${r.n_stock} stock</span> · obj ${r.n_seg_obj}</span>
-      </div>
-      <div style="height:12px;background:var(--sur2);border-radius:6px;overflow:hidden;display:flex">
-        <div style="width:${w_inst}%;background:#2563eb44;border-radius:6px 0 0 6px"></div>
-        <div style="width:${w_stock}%;background:${col_stock};border-radius:0 6px 6px 0;position:relative">
-          <div style="position:absolute;right:0;top:-1px;height:14px;width:2px;background:var(--yel)" title="Objetivo 2%"></div>
-        </div>
-      </div>
-    </div>`;
-  }).join('');
-  // Detalle
-  $('stk-detalle-body').innerHTML=det.map(d=>{
-    const udn_b=d.udn==='CERVEZAS CMQ'?'<span class="badge b-org">🍺 CVZA</span>':
-                d.udn==='UNG'?'<span class="badge b-eme">🥤 UNG</span>':'<span class="badge b-agua">💧 Aguas</span>';
-    return`<tr>
-      <td style="font-size:9px;color:var(--mut)">${d.ser}</td>
-      <td>${udn_b}</td>
-      <td><span class="badge b-org">${d.mod}</span></td>
-      <td style="font-size:10px">${d.desc}</td>
-    </tr>`;
-  }).join('');
-}
-function exportStock(){
-  const det=DATA_STOCK.detalle;
-  dl(toCSV(det,['ser','udn','mod','desc','hl_min']),'stock_deposito.csv');
-}
-
-// ── EXPORTS ──────────────────────────────────────────────
-function toCSV(rows,fields){return fields.join(',')+'\n'+rows.map(r=>fields.map(f=>`"${(r[f]??'').toString().replace(/"/g,'""')}"`).join(',')).join('\n');}
-function dl(c,n){const b=new Blob(['\uFEFF'+c],{type:'text/csv;charset=utf-8'});const a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=n;a.click();}
-function exportAll(){dl(toCSV(DATA_EDF,['pdv','cod','loc','ruta','sup','pro','udn','mod','ser','meta','a_mes','pct_mes','dif_mes','sem','ok_mes','pct_3m','ok_3m','pct_6m','ok_6m','pct_12m','ok_12m','vc3','vc6','vc12','rec','tipo_venta','fec']),'EDF_completo.csv');}
-function exportClientes(){dl(toCSV(filterCLI(),['pdv','cod','loc','ruta','sup','pro','udn','n_edf','n_ok_mes','meta','hl_mes','pct_mes','pct_3m','pct_6m','pct_12m','vc3','vc6','vc12','rec']),'clientes_EDF.csv');}
-function exportEDF(){dl(toCSV(filterEDF(),['pdv','cod','loc','sup','pro','udn','mod','ser','meta','a_mes','pct_mes','dif_mes','ok_mes','pct_3m','ok_3m','pct_6m','ok_6m','pct_12m','ok_12m','rec']),'detalle_EDF.csv');}
-function exportVC(){dl(toCSV(filterVC(),['pdv','cod','loc','ruta','sup','pro','udn','mod','ser','meta','rec']),'venta_cero_'+vcMode+'.csv');}
-function exportAnual(){dl(toCSV(filterAnual(),['pdv','cod','loc','sup','pro','udn','mod','meta','a_12m','pct_12m','ok_12m','pct_mes','ok_mes','rec']),'repago_anual.csv');}
-
-// ── INIT ─────────────────────────────────────────────────
+// INIT
 initSelects();
-initResumenSelects();
-initPISelects();
-renderResumen();renderClientes();renderEDF();
-renderSupervisores();renderPromotores();renderVC();renderAnual();
+renderResumen();
+renderClientes();
+renderEDF();
+renderSupervisores();
+renderPromotores();
+renderVC();
 renderResumenCli();
 renderPI();
 renderStock();
-
-// ── SORT ENGINE ───────────────────────────────────────────
-const _sort = {field:null, dir:1};
-function sortBy(field, thEl, renderFn){
-  if(_sort.field===field) _sort.dir*=-1; else {_sort.field=field;_sort.dir=1;}
-  document.querySelectorAll('.sortable').forEach(t=>t.classList.remove('asc','desc'));
-  thEl.classList.add(_sort.dir===1?'asc':'desc');
-  renderFn();
-}
-function applSort(rows){
-  if(!_sort.field) return rows;
-  return [...rows].sort((a,b)=>{
-    let av=a[_sort.field]??'', bv=b[_sort.field]??'';
-    if(typeof av==='number'&&typeof bv==='number') return (av-bv)*_sort.dir;
-    return av.toString().localeCompare(bv.toString(),'es')*_sort.dir;
-  });
-}
-
-// Rutas disponibles
-const RUTAS_TEMP = new Set(["V12 TEMP", "V31 TEMP", "V34 TEMP", "V35 TEMP", "V41 TEMP", "V52 TEMP"]);
-const TODAS_RUTAS = ["DOLORES", "MAYORISTAS", "OFICINA", "OFICINA MDA", "TELEFONICA", "V12 LUJU", "V12 MAVI", "V12 MISA", "V12 TEMP", "V31 JUE", "V31 LUN", "V31 MAVI", "V31 MISA", "V31 TEMP", "V34 LUJU", "V34 MAVI", "V34 MISA", "V34 TEMP", "V35 JUE", "V35 LUN", "V35 MAVI", "V35 MISA", "V35 TEMP", "V41 LUJU", "V41 MAVI", "V41 MISA", "V41 TEMP", "V51 JUE", "V51 LUN", "V51 MAVI", "V51 MISA", "V52 JUE", "V52 LUN", "V52 MAVI", "V52 MISA", "V52 TEMP", "V71 JUE", "V71 LUN", "V71 MAR", "V71 MIE", "V71 VIE", "V73 JUE", "V73 MAR", "V73 MISA", "V73 VIE", "V74 LUJU", "V74 MAVI", "VENTA INTERNA"];
-
-
-function applyRutaFilter(rows, selId){
-  const v=document.getElementById(selId+'-rt');
-  if(!v||!v.value) return rows;
-  if(v.value==='__temp__') return rows.filter(d=>RUTAS_TEMP.has(d.ruta||''));
-  if(v.value==='__notemp__') return rows.filter(d=>!RUTAS_TEMP.has(d.ruta||''));
-  return rows.filter(d=>d.ruta===v.value);
-}
+renderAnual();
 
 </script>
 </body>
